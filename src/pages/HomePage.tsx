@@ -86,7 +86,7 @@ export const HomePage: React.FC = () => {
           <div className="max-w-3xl">
             
             {/* Editorial Label */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy-midnight/80 border border-gold-royal/40 backdrop-blur-md mb-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy-midnight/80 border border-gold-royal/40 backdrop-blur-md mb-6 animate-hero-fade">
               <span className="w-1.5 h-1.5 rounded-full bg-gold-royal animate-pulse"></span>
               <span className="text-[11px] uppercase tracking-[0.25em] text-gold-light font-medium">
                 TRAVEL, THOUGHTFULLY CURATED
@@ -94,22 +94,24 @@ export const HomePage: React.FC = () => {
             </div>
 
             {/* Editorial Headline */}
-            <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl text-white font-normal leading-[1.08] tracking-tight mb-6">
+            <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl text-white font-normal leading-[1.08] tracking-tight mb-6 animate-hero-title">
               Your World. <br />
               <span className="italic font-light text-gold-light">Your Story.</span>
             </h1>
 
             {/* Supporting Copy */}
-            <p className="text-base sm:text-xl text-sand-ivory/90 leading-relaxed font-light mb-8 max-w-2xl">
-              From unforgettable escapes to extraordinary adventures, discover journeys designed around the way you want to travel.
-            </p>
+            <div className="animate-hero-sub">
+              <p className="text-base sm:text-xl text-sand-ivory/90 leading-relaxed font-light mb-4 max-w-2xl">
+                From unforgettable escapes to extraordinary adventures, discover journeys designed around the way you want to travel.
+              </p>
 
-            <p className="text-xs uppercase tracking-widest text-gold-royal/90 mb-8 font-mono">
-              Extraordinary places • Meaningful experiences • Memories that stay
-            </p>
+              <p className="text-xs uppercase tracking-widest text-gold-royal/90 mb-8 font-mono">
+                Extraordinary places • Meaningful experiences • Memories that stay
+              </p>
+            </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 animate-hero-cta">
               <Link
                 to="/destinations"
                 className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-wider text-navy-midnight bg-gradient-to-r from-gold-light via-gold-royal to-gold-metallic hover:brightness-110 active:scale-95 transition-all shadow-gold-glow group"
@@ -120,7 +122,7 @@ export const HomePage: React.FC = () => {
               
               <Link
                 to="/plan-trip"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-wider text-sand-ivory bg-navy-midnight/70 hover:bg-navy-midnight border border-gold-royal/40 hover:border-gold-royal transition-all backdrop-blur-md"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-wider text-sand-ivory bg-navy-midnight/70 hover:bg-navy-midnight border border-gold-royal/40 hover:border-gold-royal transition-all backdrop-blur-md active:scale-95"
               >
                 <span>Design Your Trip</span>
               </Link>
