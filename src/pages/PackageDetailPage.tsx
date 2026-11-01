@@ -436,7 +436,7 @@ export const PackageDetailPage: React.FC = () => {
                   </button>
 
                   <a
-                    href={`https://wa.me/919840012345?text=Hello%20Yazhi%20Holidays,%20I%20am%20inquiring%20about%20the%20${encodeURIComponent(pkg.title)}%20package.`}
+                    href={`https://wa.me/9196380792722?text=Hello%20Yazhi%20Holidays,%20I%20am%20inquiring%20about%20the%20${encodeURIComponent(pkg.title)}%20package.`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-2.5 rounded-full text-xs font-semibold text-sand-ivory bg-navy-midnight hover:bg-navy-midnight/90 border border-gold-royal/30 flex items-center justify-center gap-2 transition-colors"

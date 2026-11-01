@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, MessageCircle, ArrowRight, ShieldCheck, HeartHandshake, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, ArrowRight, ShieldCheck, HeartHandshake, CheckCircle2, Sparkles, Send } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newsletterEmail || !newsletterEmail.includes('@')) return;
+    setErrorMessage('');
+    const trimmed = newsletterEmail.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!trimmed || !emailRegex.test(trimmed)) {
+      setErrorMessage('Please enter a valid email address.');
+      return;
+    }
+
     setSubscribed(true);
     setNewsletterEmail('');
-    setTimeout(() => setSubscribed(false), 5000);
+    setTimeout(() => setSubscribed(false), 6000);
   };
 
   return (
     <footer className="bg-navy-midnight text-sand-ivory pt-16 pb-12 border-t border-navy-royal/60 relative overflow-hidden">
-      {/* Subtle gold ambient glow */}
+      {/* Subtle gold ambient top line glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-gold-royal/50 to-transparent"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,7 +61,75 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Main Footer Content */}
+        {/* ========================================================= */}
+        {/* REDESIGNED LUXURY NEWSLETTER SECTION                      */}
+        {/* ========================================================= */}
+        <div className="mb-14 p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-[#041329] via-[#082042] to-[#041329] border border-gold-royal/30 shadow-luxury-dark relative overflow-hidden">
+          {/* Ambient decorative blur glows */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-gold-royal/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-gold-royal/5 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+            {/* Left Column: Heading and Description */}
+            <div className="max-w-xl space-y-2.5">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-royal/60 border border-gold-royal/30 text-[10px] font-mono tracking-widest text-gold-light uppercase">
+                <Sparkles className="w-3 h-3 text-gold-royal" />
+                <span>CURATED TRAVEL DISPATCH</span>
+              </div>
+              <h3 className="font-serif text-2xl sm:text-3xl text-white font-normal leading-tight">
+                Join Our Travel Dispatch
+              </h3>
+              <p className="text-xs sm:text-sm text-sand-ivory/80 leading-relaxed font-light">
+                Receive seasonal domestic circuits, hidden hill retreat recommendations, and private travel stories from our specialists. Mindfully sent, zero spam.
+              </p>
+            </div>
+
+            {/* Right Column: Input Field & Subscription CTA */}
+            <div className="w-full lg:max-w-md">
+              <form onSubmit={handleNewsletterSubmit} className="space-y-2.5">
+                <div className="flex flex-col sm:flex-row items-stretch gap-2.5 sm:gap-2">
+                  <div className="relative flex-1">
+                    <input
+                      type="email"
+                      value={newsletterEmail}
+                      onChange={(e) => {
+                        setNewsletterEmail(e.target.value);
+                        if (errorMessage) setErrorMessage('');
+                      }}
+                      placeholder="Enter your email address..."
+                      required
+                      className="w-full px-4 py-3 text-xs sm:text-sm bg-navy-royal/40 border border-gold-royal/30 rounded-xl text-white placeholder-sand-ivory/40 focus:outline-none focus:border-gold-royal focus:ring-1 focus:ring-gold-royal/50 transition-all shadow-inner font-sans"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="btn-primary py-3 px-6 text-xs whitespace-nowrap shadow-md group flex-shrink-0 justify-center"
+                  >
+                    <span>Subscribe</span>
+                    <ArrowRight className="w-3.5 h-3.5 btn-arrow" />
+                  </button>
+                </div>
+
+                {/* Validation Error Message */}
+                {errorMessage && (
+                  <p className="text-[11px] text-red-400 font-sans pl-1">
+                    {errorMessage}
+                  </p>
+                )}
+
+                {/* Verified Subscription Success Pill */}
+                {subscribed && (
+                  <div className="p-2.5 rounded-lg bg-gold-royal/15 border border-gold-royal/40 flex items-center gap-2 text-xs text-gold-light animate-fadeIn">
+                    <CheckCircle2 className="w-4 h-4 text-gold-royal flex-shrink-0" />
+                    <span>Thank you. You have been welcomed to Yazhi Curated Notes.</span>
+                  </div>
+                )}
+              </form>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Footer Links Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12">
           
           {/* Brand Info & Official Logo */}
@@ -76,63 +153,58 @@ export const Footer: React.FC = () => {
             </Link>
 
             <p className="text-sm text-sand-ivory/80 leading-relaxed max-w-sm">
-              Rooted in the royal grace and strength of Tamil Nadu’s heritage emblem, Yazhi Holidays crafts discerning travel experiences across India and the globe.
+              Rooted in the royal grace and strength of Tamil Nadu’s heritage emblem, Yazhi Holidays crafts discerning travel experiences across India’s most scenic destinations.
             </p>
 
             <div className="pt-2 space-y-2.5 text-xs text-sand-ivory/85">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-gold-royal flex-shrink-0 mt-0.5" />
-                <span>Anna Nagar, Chennai, Tamil Nadu, India — 600040</span>
+                <span>Sulur, Coimbatore, Tamil Nadu, India</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-gold-royal flex-shrink-0" />
-                <a href="tel:+919840012345" className="hover:text-gold-royal transition-colors">+91 98400 12345</a>
-                <span className="text-slate-muted">/</span>
-                <a href="tel:+919444054321" className="hover:text-gold-royal transition-colors">+91 94440 54321</a>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-gold-royal flex-shrink-0" />
-                <a href="mailto:concierge@yazhiholidays.com" className="hover:text-gold-royal transition-colors">concierge@yazhiholidays.com</a>
+                <a href="tel:6380792722" className="hover:text-gold-royal transition-colors font-medium">6380792722</a>
               </div>
             </div>
 
             <div className="pt-2">
               <a
-                href="https://wa.me/919840012345?text=Hello%20Yazhi%20Holidays,%20I%20would%20like%20to%20inquire%20about%20a%20holiday%20package."
+                href="https://wa.me/9196380792722?text=Hello%20Yazhi%20Holidays,%20I%20would%20like%20to%20know%20more%20about%20your%20domestic%20holiday%20packages."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-navy-midnight bg-gradient-to-r from-gold-light to-gold-royal hover:brightness-110 shadow-gold-glow transition-all"
+                className="btn-primary py-2.5 px-5"
               >
-                <MessageCircle className="w-4 h-4 text-navy-midnight" />
+                <MessageCircle className="w-4 h-4 text-navy-midnight btn-no-move" />
                 <span>Chat on WhatsApp Directly</span>
               </a>
             </div>
           </div>
 
-          {/* Destinations Column */}
+          {/* Domestic Destinations Column */}
           <div>
             <h4 className="font-serif text-lg text-white font-medium mb-4 flex items-center gap-2">
               <span>Destinations</span>
               <span className="w-6 h-px bg-gold-royal/60"></span>
             </h4>
             <ul className="space-y-2.5 text-xs text-sand-ivory/75">
-              <li><Link to="/destinations/bali" className="hover:text-gold-royal transition-colors">Bali, Indonesia</Link></li>
-              <li><Link to="/destinations/switzerland" className="hover:text-gold-royal transition-colors">Switzerland</Link></li>
-              <li><Link to="/destinations/kerala" className="hover:text-gold-royal transition-colors">Kerala Backwaters</Link></li>
-              <li><Link to="/destinations/dubai" className="hover:text-gold-royal transition-colors">Dubai & UAE</Link></li>
-              <li><Link to="/destinations/maldives" className="hover:text-gold-royal transition-colors">Maldives Overwater</Link></li>
-              <li><Link to="/destinations/thailand" className="hover:text-gold-royal transition-colors">Thailand Karsts & Temples</Link></li>
+              <li><Link to="/destinations/ooty" className="hover:text-gold-royal transition-colors">Ooty & Nilgiri Hills</Link></li>
+              <li><Link to="/destinations/kodaikanal" className="hover:text-gold-royal transition-colors">Kodaikanal</Link></li>
+              <li><Link to="/destinations/munnar" className="hover:text-gold-royal transition-colors">Munnar & Alleppey</Link></li>
+              <li><Link to="/destinations/coorg" className="hover:text-gold-royal transition-colors">Coorg (Kodagu)</Link></li>
+              <li><Link to="/destinations/goa" className="hover:text-gold-royal transition-colors">Goa Coastal Serenity</Link></li>
+              <li><Link to="/destinations/mysore" className="hover:text-gold-royal transition-colors">Mysore Palaces</Link></li>
               <li><Link to="/destinations/kashmir" className="hover:text-gold-royal transition-colors">Kashmir Valleys</Link></li>
+              <li><Link to="/destinations/rameswaram-madurai-kanyakumari" className="hover:text-gold-royal transition-colors">Madurai & Rameswaram</Link></li>
               <li className="pt-1">
                 <Link to="/destinations" className="text-gold-royal hover:underline font-semibold flex items-center gap-1">
-                  <span>Explore All Places</span>
+                  <span>Explore All Indian Places</span>
                   <ArrowRight className="w-3 h-3" />
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Package Categories */}
+          {/* Holiday Styles Column */}
           <div>
             <h4 className="font-serif text-lg text-white font-medium mb-4 flex items-center gap-2">
               <span>Holiday Styles</span>
@@ -141,10 +213,9 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2.5 text-xs text-sand-ivory/75">
               <li><Link to="/packages?type=Honeymoon" className="hover:text-gold-royal transition-colors">Honeymoon Escapes</Link></li>
               <li><Link to="/packages?type=Family" className="hover:text-gold-royal transition-colors">Family Holidays</Link></li>
-              <li><Link to="/packages?region=International" className="hover:text-gold-royal transition-colors">International Tours</Link></li>
-              <li><Link to="/packages?region=Domestic" className="hover:text-gold-royal transition-colors">Domestic Journeys</Link></li>
-              <li><Link to="/packages?type=Adventure" className="hover:text-gold-royal transition-colors">Adventure & Safaris</Link></li>
-              <li><Link to="/packages?type=Cultural" className="hover:text-gold-royal transition-colors">Heritage & Culture</Link></li>
+              <li><Link to="/packages?type=Cultural" className="hover:text-gold-royal transition-colors">Heritage & Temple Circuits</Link></li>
+              <li><Link to="/packages?type=Adventure" className="hover:text-gold-royal transition-colors">Hill Stations & Treks</Link></li>
+              <li><Link to="/packages?type=Leisure" className="hover:text-gold-royal transition-colors">Backwaters & Slow Living</Link></li>
               <li><Link to="/plan-trip" className="text-gold-royal hover:underline font-semibold flex items-center gap-1 pt-1">
                 <span>Custom Trip Planner</span>
                 <ArrowRight className="w-3 h-3" />
@@ -152,48 +223,18 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Company & Newsletter */}
+          {/* Travel Notes & Staff Portal */}
           <div>
             <h4 className="font-serif text-lg text-white font-medium mb-4 flex items-center gap-2">
               <span>Travel Notes</span>
               <span className="w-6 h-px bg-gold-royal/60"></span>
             </h4>
-            <ul className="space-y-2.5 text-xs text-sand-ivory/75 mb-5">
+            <ul className="space-y-2.5 text-xs text-sand-ivory/75">
               <li><Link to="/about" className="hover:text-gold-royal transition-colors">Our Philosophy & Team</Link></li>
-              <li><Link to="/travel-journal" className="hover:text-gold-royal transition-colors">Travel Journal / Blog</Link></li>
               <li><Link to="/faq" className="hover:text-gold-royal transition-colors">Frequently Asked Questions</Link></li>
               <li><Link to="/contact" className="hover:text-gold-royal transition-colors">Contact Concierge</Link></li>
               <li><Link to="/admin/login" className="hover:text-gold-royal transition-colors">Staff Portal Login</Link></li>
             </ul>
-
-            <div className="pt-2">
-              <span className="text-xs font-semibold text-white block mb-1.5">Join Our Travel Dispatch</span>
-              <form onSubmit={handleNewsletterSubmit} className="space-y-2">
-                <div className="relative">
-                  <input
-                    type="email"
-                    value={newsletterEmail}
-                    onChange={(e) => setNewsletterEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    required
-                    className="w-full px-3 py-2 text-xs bg-navy-royal/50 border border-navy-royal rounded text-white placeholder-sand-ivory/40 focus:outline-none focus:border-gold-royal"
-                  />
-                  <button
-                    type="submit"
-                    aria-label="Subscribe"
-                    className="absolute right-1 top-1 bottom-1 px-2.5 bg-gold-royal text-navy-midnight rounded text-xs font-medium hover:bg-gold-light transition-colors"
-                  >
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-                {subscribed && (
-                  <p className="text-[11px] text-gold-royal flex items-center gap-1">
-                    <CheckCircle2 className="w-3 h-3" />
-                    <span>Thank you. Welcome to Yazhi Curated Notes.</span>
-                  </p>
-                )}
-              </form>
-            </div>
           </div>
         </div>
 

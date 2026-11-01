@@ -114,4 +114,21 @@ export interface ReviewTestimonial {
   rating: number;
   comment: string;
   tripType: string;
+  avatar?: string;
+  photo?: string;
+  verified?: boolean;
 }
+
+export interface CustomerMemory {
+  id: string;
+  imageUrl: string;
+  destination: string; // e.g. "Ooty", "Kodaikanal", "Munnar", "Coorg", "Kerala", "Goa", "Mysore", "Wayanad"
+  tripType?: string; // e.g. "Family Tour", "Friends Group", "Couple Getaway", "Tour Bus Group", "Hill Station Tour"
+  tripDate: string; // e.g. "October 2026", "15 Nov 2026"
+  caption?: string; // e.g. "Beautiful memories from our Ooty trip!"
+  isPublished: boolean; // toggle to select which photos appear on the public website
+  isFeatured?: boolean;
+  aspectRatio?: 'landscape' | 'portrait' | 'square';
+  createdAt: string;
+}
+

@@ -89,17 +89,17 @@ export const FaqPage: React.FC = () => {
             Have a Specific Question?
           </h3>
           <p className="text-xs sm:text-sm text-sand-ivory/80 max-w-md mx-auto font-light">
-            Our travel designers in Chennai are available directly via WhatsApp or phone.
+            Our travel designers are available directly via WhatsApp or phone.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href="https://wa.me/919840012345?text=Hello%20Yazhi%20Holidays,%20I%20have%20a%20question%20about%20your%20services."
+              href="https://wa.me/9196380792722?text=Hello%20Yazhi%20Holidays,%20I%20have%20a%20question%20about%20your%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-2.5 rounded-full text-xs font-semibold text-navy-midnight bg-gold-royal hover:bg-gold-light transition-all flex items-center gap-2"
             >
               <MessageCircle className="w-4 h-4" />
-              <span>WhatsApp Concierge (+91 98400 12345)</span>
+              <span>WhatsApp Concierge (6380792722)</span>
             </a>
             <Link
               to="/contact"

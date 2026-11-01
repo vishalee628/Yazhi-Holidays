@@ -132,15 +132,15 @@ export const ConfirmationPage: React.FC = () => {
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <button
               onClick={handlePrint}
-              className="w-full sm:w-auto px-5 py-2.5 rounded-full text-xs font-semibold text-navy-primary border border-sand-border hover:bg-sand-card flex items-center justify-center gap-2 transition-colors"
+              className="btn-secondary w-full sm:w-auto py-2.5 px-5"
             >
-              <Printer className="w-3.5 h-3.5 text-gold-metallic" />
+              <Printer className="w-3.5 h-3.5 text-gold-metallic btn-no-move" />
               <span>Print / Save Summary</span>
             </button>
 
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <a
-                href={`https://wa.me/919840012345?text=Hello%20Yazhi%20Holidays,%20my%20enquiry%20reference%20is%20${encodeURIComponent(refCode)}.`}
+                href={`https://wa.me/9196380792722?text=Hello%20Yazhi%20Holidays,%20my%20enquiry%20reference%20is%20${encodeURIComponent(refCode)}.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-5 py-2.5 rounded-full text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 flex items-center justify-center gap-2 transition-colors"
@@ -151,10 +151,10 @@ export const ConfirmationPage: React.FC = () => {
 
               <Link
                 to="/"
-                className="w-full sm:w-auto px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-navy-midnight bg-gold-royal hover:bg-gold-light transition-all flex items-center justify-center gap-1.5"
+                className="btn-primary w-full sm:w-auto py-2.5 px-6"
               >
                 <span>Return Home</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5 btn-arrow" />
               </Link>
             </div>
           </div>

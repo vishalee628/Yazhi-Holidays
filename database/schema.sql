@@ -158,6 +158,24 @@ CREATE TABLE IF NOT EXISTS `testimonials` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ------------------------------------------------------------------------------
+-- 7B. HAPPY CUSTOMERS TRIP MEMORIES (PHOTOS & EXPERIENCES)
+-- ------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `customer_memories` (
+  `id` VARCHAR(100) PRIMARY KEY,
+  `image_url` VARCHAR(500) NOT NULL,
+  `destination` VARCHAR(100) NOT NULL,
+  `trip_type` VARCHAR(100) NULL,
+  `trip_date` VARCHAR(50) NOT NULL,
+  `caption` TEXT NULL,
+  `is_published` TINYINT(1) DEFAULT 1,
+  `is_featured` TINYINT(1) DEFAULT 0,
+  `aspect_ratio` VARCHAR(20) DEFAULT 'landscape',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  INDEX `idx_mem_dest` (`destination`),
+  INDEX `idx_mem_published` (`is_published`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ------------------------------------------------------------------------------
 -- 8. BLOG POSTS (TRAVEL JOURNAL)
 -- ------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blog_posts` (

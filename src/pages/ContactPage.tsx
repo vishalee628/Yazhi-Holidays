@@ -90,43 +90,32 @@ export const ContactPage: React.FC = () => {
             
             <div className="bg-white rounded-3xl p-8 border border-sand-border shadow-luxury space-y-6">
               <h3 className="font-serif text-2xl text-navy-primary font-semibold">
-                Chennai Headquarters
+                Yazhi Holidays Concierge
               </h3>
 
               <div className="space-y-4 text-xs text-slate-body">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-gold-metallic flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-navy-primary text-sm font-semibold">Registered Office:</strong>
-                    <span>Anna Nagar, Chennai, Tamil Nadu, India — 600040</span>
+                    <strong className="block text-navy-primary text-sm font-semibold">Office Location:</strong>
+                    <span>Sulur, Coimbatore, Tamil Nadu, India</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-gold-metallic flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-navy-primary text-sm font-semibold">Telephone Concierge:</strong>
-                    <a href="tel:+919840012345" className="hover:text-gold-metallic transition-colors block">+91 98400 12345</a>
-                    <a href="tel:+919444054321" className="hover:text-gold-metallic transition-colors block">+91 94440 54321</a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-gold-metallic flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-navy-primary text-sm font-semibold">Electronic Mail:</strong>
-                    <a href="mailto:concierge@yazhiholidays.com" className="hover:text-gold-metallic transition-colors">
-                      concierge@yazhiholidays.com
-                    </a>
+                    <strong className="block text-navy-primary text-sm font-semibold">Direct Telephone:</strong>
+                    <a href="tel:6380792722" className="hover:text-gold-metallic transition-colors block font-medium text-sm">6380792722</a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-gold-metallic flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-navy-primary text-sm font-semibold">Business Hours:</strong>
+                    <strong className="block text-navy-primary text-sm font-semibold">Concierge Hours:</strong>
                     <span>Monday to Saturday: 9:30 AM – 7:30 PM IST</span>
-                    <span className="block text-slate-muted">Sunday: On-call emergency concierge only</span>
+                    <span className="block text-slate-muted">Sunday: On-call concierge assistance</span>
                   </div>
                 </div>
               </div>
@@ -134,12 +123,12 @@ export const ContactPage: React.FC = () => {
               {/* Direct WhatsApp CTA Button */}
               <div className="pt-4 border-t border-sand-border">
                 <a
-                  href="https://wa.me/919840012345?text=Hello%20Yazhi%20Holidays,%20I%20would%20like%20to%20connect%20with%20a%20travel%20specialist."
+                  href="https://wa.me/9196380792722?text=Hello%20Yazhi%20Holidays,%20I%20would%20like%20to%20know%20more%20about%20your%20holiday%20packages."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3 px-4 rounded-xl text-xs font-semibold uppercase tracking-wider text-navy-midnight bg-gradient-to-r from-gold-light to-gold-royal hover:brightness-110 shadow-gold-glow flex items-center justify-center gap-2 transition-all"
+                  className="btn-primary w-full py-3.5"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <MessageCircle className="w-4 h-4 btn-no-move" />
                   <span>Instant WhatsApp Chat</span>
                 </a>
               </div>
@@ -153,7 +142,7 @@ export const ContactPage: React.FC = () => {
                 <span>DIRECT HUMAN TOUCH</span>
               </div>
               <p className="text-xs text-sand-ivory/80 leading-relaxed font-light">
-                Every conversation is handled directly by experienced travel consultants who understand visas, hotel tiers, and route pacing.
+                Every conversation is handled directly by experienced travel consultants who understand luxury stays, premium coaches, and route pacing.
               </p>
             </div>
 
@@ -213,7 +202,7 @@ export const ContactPage: React.FC = () => {
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 98400 12345"
+                      placeholder="e.g. 6380792722"
                       className="w-full px-4 py-2.5 bg-sand-ivory border border-sand-border rounded-xl text-navy-primary focus:outline-none focus:border-gold-royal font-sans text-sm"
                     />
                   </div>
@@ -244,7 +233,7 @@ export const ContactPage: React.FC = () => {
                       className="w-full px-4 py-2.5 bg-sand-ivory border border-sand-border rounded-xl text-navy-primary focus:outline-none focus:border-gold-royal font-sans text-sm"
                     >
                       <option value="General Holiday Enquiry">General Holiday Enquiry</option>
-                      <option value="Customized International Tour">Customized International Tour</option>
+                      <option value="Customized Indian Domestic Tour">Customized Indian Domestic Tour</option>
                       <option value="Honeymoon Package Enquiry">Honeymoon Package Enquiry</option>
                       <option value="Family Holiday Planning">Family Holiday Planning</option>
                       <option value="Corporate / Group Travel">Corporate / Group Travel</option>
@@ -292,9 +281,9 @@ export const ContactPage: React.FC = () => {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider text-navy-midnight bg-gradient-to-r from-gold-light via-gold-royal to-gold-metallic hover:brightness-110 active:scale-95 transition-all shadow-gold-glow flex items-center justify-center gap-2"
+                    className="btn-primary w-full sm:w-auto px-8 py-3.5"
                   >
-                    <Send className="w-4 h-4" />
+                    <Send className="w-4 h-4 btn-no-move" />
                     <span>{submitting ? 'Transmitting...' : 'Send Message'}</span>
                   </button>
                 </div>

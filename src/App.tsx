@@ -15,8 +15,7 @@ import { CollectionsPage } from './pages/CollectionsPage';
 import { TripPlannerPage } from './pages/TripPlannerPage';
 import { ConfirmationPage } from './pages/ConfirmationPage';
 import { AboutPage } from './pages/AboutPage';
-import { BlogPage } from './pages/BlogPage';
-import { BlogDetailPage } from './pages/BlogDetailPage';
+
 import { ContactPage } from './pages/ContactPage';
 import { FaqPage } from './pages/FaqPage';
 import { PrivacyPolicyPage, TermsPage } from './pages/LegalPages';
@@ -52,8 +51,7 @@ const AppContent: React.FC = () => {
           <Route path="/plan-trip" element={<TripPlannerPage />} />
           <Route path="/confirmation" element={<ConfirmationPage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/travel-journal" element={<BlogPage />} />
-          <Route path="/travel-journal/:slug" element={<BlogDetailPage />} />
+
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

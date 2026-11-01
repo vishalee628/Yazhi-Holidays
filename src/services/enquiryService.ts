@@ -1,6 +1,6 @@
 import { EnquirySubmission } from '../types';
 
-const STORAGE_KEY = 'yazhi_holidays_enquiries';
+const STORAGE_KEY = 'yazhi_holidays_enquiries_v2';
 
 const INITIAL_ENQUIRIES: EnquirySubmission[] = [
   {
@@ -12,18 +12,18 @@ const INITIAL_ENQUIRIES: EnquirySubmission[] = [
     email: 'aditya.verma@example.com',
     phone: '+91 98840 92831',
     preferredContact: 'WhatsApp',
-    destination: 'Bali, Indonesia',
-    packageSlug: 'bali-island-days-and-sunset-evenings',
+    destination: 'Ooty, Tamil Nadu',
+    packageSlug: 'ooty-nilgiri-hills-mist-and-heritage-railway',
     departureCity: 'Chennai',
     travelDate: '2026-12-15',
     flexibleDates: true,
-    durationDays: 6,
+    durationDays: 4,
     adultsCount: 2,
     childrenCount: 0,
-    budgetRange: '₹50,000–₹1,00,000',
+    budgetRange: '₹25,000–₹50,000',
     experiencePreferences: ['Honeymoon', 'Relaxation', 'Luxury stays'],
-    specialRequests: 'Celebrating 1st anniversary. Requesting flower bath setup and private candlelit beach dinner.',
-    adminNotes: 'Contacted over WhatsApp on 29 Oct. Shared upgraded pool villa options in Seminyak.'
+    specialRequests: 'Celebrating 1st anniversary. Requesting private heritage bungalow suite and tea estate walk.',
+    adminNotes: 'Contacted over WhatsApp on 29 Oct. Shared upgraded heritage tea estate villa options in Coonoor.'
   },
   {
     id: 'enq-102',
@@ -34,18 +34,18 @@ const INITIAL_ENQUIRIES: EnquirySubmission[] = [
     email: 'rajeshwari.s@example.com',
     phone: '+91 94441 55678',
     preferredContact: 'Phone Call',
-    destination: 'Switzerland',
-    packageSlug: 'switzerland-alpine-views-and-scenic-railways',
+    destination: 'Kashmir',
+    packageSlug: 'kashmir-paradise-on-earth-dal-lake-and-meadows',
     departureCity: 'Bangalore',
     travelDate: '2027-04-10',
     flexibleDates: false,
-    durationDays: 8,
+    durationDays: 6,
     adultsCount: 4,
     childrenCount: 1,
-    budgetRange: 'Above ₹2,00,000',
+    budgetRange: '₹50,000–₹1,00,000',
     experiencePreferences: ['Family activities', 'Nature', 'Culture'],
-    specialRequests: 'Family holiday with elderly parent (requires wheelchair accessible rail carriages) and 10yo child.',
-    adminNotes: 'New lead. Assigned to senior European specialist.'
+    specialRequests: 'Family holiday with elderly parent (requires ground floor luxury houseboat) and 10yo child.',
+    adminNotes: 'New lead. Assigned to senior domestic specialist.'
   },
   {
     id: 'enq-103',
@@ -73,6 +73,10 @@ const INITIAL_ENQUIRIES: EnquirySubmission[] = [
 
 export const getEnquiries = (): EnquirySubmission[] => {
   try {
+    // Clean up legacy v1 key with Bali/Switzerland
+    if (localStorage.getItem('yazhi_holidays_enquiries')) {
+      localStorage.removeItem('yazhi_holidays_enquiries');
+    }
     const data = localStorage.getItem(STORAGE_KEY);
     if (!data) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_ENQUIRIES));

@@ -156,6 +156,362 @@
   background: #B88414;
 }
 
+/* Signature 3D and Flight Path Animations */
+@keyframes lightSweep {
+  0% { transform: translateX(-150%) skewX(-18deg); }
+  100% { transform: translateX(250%) skewX(-18deg); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes planeTraverse {
+  0% { offset-distance: 0%; opacity: 0; }
+  6% { opacity: 1; }
+  94% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+@keyframes busTraverse {
+  0% { offset-distance: 0%; opacity: 0; }
+  4% { opacity: 1; }
+  96% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-light-sweep {
+  animation: lightSweep 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 24s linear infinite;
+}
+
+.animate-float-slow {
+  animation: subtleFloat 6s ease-in-out infinite;
+}
+
+/* ========================================================= */
+/* LUXURY BRAND BUTTON DESIGN SYSTEM                         */
+/* ========================================================= */
+
+/* Primary Button (Royal Gold) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #F8DFA0 0%, #F5B82E 50%, #DDA52A 100%);
+  color: #041329;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.625rem 1.375rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 4px 14px rgba(221, 165, 42, 0.28), 0 2px 4px rgba(7, 29, 58, 0.08);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 0.25s ease, 
+              background 0.25s ease, 
+              border-color 0.25s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 8px 22px rgba(221, 165, 42, 0.42), 0 3px 6px rgba(7, 29, 58, 0.12);
+}
+
+.btn-primary:hover svg.btn-arrow,
+.btn-primary:hover svg:not(.btn-no-move) {
+  transform: translateX(3px);
+}
+
+.btn-primary:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: 0 2px 6px rgba(221, 165, 42, 0.25);
+}
+
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #071D3A, 0 0 0 4px #F5B82E;
+}
+
+/* Primary Button (Deep Navy Variant for Light Sections) */
+.btn-primary-navy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #071D3A;
+  color: #FAF7F0;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.625rem 1.375rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(245, 184, 46, 0.35);
+  box-shadow: 0 4px 14px rgba(7, 29, 58, 0.2);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              background 0.25s ease, 
+              border-color 0.25s ease, 
+              color 0.25s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn-primary-navy:hover {
+  background: #0B2A50;
+  color: #FFFFFF;
+  border-color: #F5B82E;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(7, 29, 58, 0.32), 0 0 14px rgba(245, 184, 46, 0.25);
+}
+
+.btn-primary-navy:hover svg.btn-arrow,
+.btn-primary-navy:hover svg:not(.btn-no-move) {
+  transform: translateX(3px);
+}
+
+.btn-primary-navy:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+.btn-primary-navy:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #FAF7F0, 0 0 0 4px #F5B82E;
+}
+
+/* Secondary Button (Light Backgrounds) */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #071D3A;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.5625rem 1.25rem;
+  border-radius: 9999px;
+  border: 1px solid #D1C9B8;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              background 0.25s ease, 
+              border-color 0.25s ease, 
+              color 0.25s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn-secondary:hover {
+  background: #FFFFFF;
+  color: #071D3A;
+  border-color: #DDA52A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(7, 29, 58, 0.08), 0 0 8px rgba(245, 184, 46, 0.15);
+}
+
+.btn-secondary:hover svg.btn-arrow,
+.btn-secondary:hover svg:not(.btn-no-move) {
+  transform: translateX(3px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+.btn-secondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #FAF7F0, 0 0 0 4px #DDA52A;
+}
+
+/* Secondary Button (Dark Backgrounds) */
+.btn-secondary-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(7, 29, 58, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FAF7F0;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.5625rem 1.375rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(245, 184, 46, 0.4);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              background 0.25s ease, 
+              border-color 0.25s ease, 
+              color 0.25s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn-secondary-dark:hover {
+  background: #071D3A;
+  color: #FFFFFF;
+  border-color: #F5B82E;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(4, 19, 41, 0.5), 0 0 12px rgba(245, 184, 46, 0.2);
+}
+
+.btn-secondary-dark:hover svg.btn-arrow,
+.btn-secondary-dark:hover svg:not(.btn-no-move) {
+  transform: translateX(3px);
+}
+
+.btn-secondary-dark:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+.btn-secondary-dark:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #041329, 0 0 0 4px #F5B82E;
+}
+
+/* Special Hero Primary CTA */
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  background: linear-gradient(135deg, #F8DFA0 0%, #F5B82E 50%, #DDA52A 100%);
+  color: #041329;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.9375rem 2.125rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 6px 20px rgba(221, 165, 42, 0.35), 0 2px 4px rgba(4, 19, 41, 0.12);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 0.25s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn-hero-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-hero-primary:hover::before {
+  left: 100%;
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 10px 28px rgba(221, 165, 42, 0.48), 0 3px 6px rgba(4, 19, 41, 0.15);
+}
+
+.btn-hero-primary:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-hero-primary:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+.btn-hero-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #041329, 0 0 0 4px #F5B82E;
+}
+
+/* Special Hero Secondary CTA */
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  background: rgba(4, 19, 41, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #FAF7F0;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.9375rem 2rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(245, 184, 46, 0.45);
+  box-shadow: 0 4px 16px rgba(4, 19, 41, 0.35);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              background 0.25s ease, 
+              border-color 0.25s ease, 
+              color 0.25s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn-hero-secondary:hover {
+  background: rgba(7, 29, 58, 0.9);
+  color: #FFFFFF;
+  border-color: #F5B82E;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(4, 19, 41, 0.5), 0 0 14px rgba(245, 184, 46, 0.25);
+}
+
+.btn-hero-secondary:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+.btn-hero-secondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #041329, 0 0 0 4px #F5B82E;
+}
+
+/* Subtle directional arrow icon motion */
+svg.btn-arrow, .btn-primary svg, .btn-primary-navy svg, .btn-secondary svg, .btn-secondary-dark svg, .btn-hero-primary svg {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
 /* Accessibility: Respect Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *,

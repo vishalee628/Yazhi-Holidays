@@ -130,7 +130,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                 required
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                placeholder="+91 98400 12345"
+                placeholder="e.g. 6380792722"
                 className="w-full px-3 py-2 text-sm bg-white border border-sand-border rounded-lg text-navy-primary focus:outline-none focus:border-gold-royal font-sans"
               />
             </div>
@@ -268,9 +268,9 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
             <button
               type="submit"
               disabled={submitting}
-              className="px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-navy-midnight bg-gradient-to-r from-gold-light via-gold-royal to-gold-metallic hover:brightness-110 active:scale-95 transition-all shadow-gold-glow flex items-center gap-2"
+              className="btn-primary py-2.5 px-6"
             >
-              <Send className="w-3.5 h-3.5" />
+              <Send className="w-3.5 h-3.5 btn-no-move" />
               <span>{submitting ? 'Submitting...' : 'Send Travel Enquiry'}</span>
             </button>
           </div>

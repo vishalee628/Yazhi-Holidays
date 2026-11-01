@@ -78,7 +78,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search destinations, packages (e.g. Bali, Switzerland, Honeymoon)..."
+            placeholder="Search destinations, packages (e.g. Ooty, Kerala, Coorg, Honeymoon)..."
             className="w-full text-base bg-transparent text-navy-primary placeholder-slate-muted focus:outline-none font-sans"
           />
           <button
@@ -96,7 +96,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
           {/* Quick Filters */}
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-xs font-semibold text-slate-muted uppercase tracking-wider">Quick:</span>
-            {['Kerala', 'Bali', 'Switzerland', 'Dubai', 'Honeymoon', 'Family'].map((term) => (
+            {['Ooty', 'Kodaikanal', 'Munnar', 'Coorg', 'Kashmir', 'Honeymoon', 'Family'].map((term) => (
               <button
                 key={term}
                 onClick={() => setQuery(term)}

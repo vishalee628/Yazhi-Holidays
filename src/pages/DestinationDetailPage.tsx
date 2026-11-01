@@ -229,7 +229,7 @@ export const DestinationDetailPage: React.FC = () => {
                 </Link>
 
                 <a
-                  href={`https://wa.me/919840012345?text=Hello%20Yazhi%20Holidays,%20I%20am%20interested%20in%20planning%20a%20trip%20to%20${encodeURIComponent(destination.name)}.`}
+                  href={`https://wa.me/9196380792722?text=Hello%20Yazhi%20Holidays,%20I%20am%20interested%20in%20planning%20a%20trip%20to%20${encodeURIComponent(destination.name)}.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-2.5 px-4 rounded-full text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 transition-colors flex items-center justify-center gap-2"
@@ -251,7 +251,7 @@ export const DestinationDetailPage: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-gold-metallic" />
-                  <span>Direct phone: +91 98400 12345</span>
+                  <span>Direct phone: <a href="tel:6380792722" className="text-navy-primary font-medium hover:text-gold-metallic">6380792722</a></span>
                 </div>
               </div>
 

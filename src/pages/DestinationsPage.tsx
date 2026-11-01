@@ -51,9 +51,6 @@ export const DestinationsPage: React.FC = () => {
 
   const isFilteringActive = searchTerm || selectedRegion !== 'All' || selectedType !== 'All' || sortBy !== 'featured';
 
-  // Count tallies
-  const intlCount = DESTINATIONS.filter(d => d.region === 'International').length;
-  const domesticCount = DESTINATIONS.filter(d => d.region === 'Domestic').length;
 
   return (
     <div className="min-h-screen bg-sand-ivory pt-32 sm:pt-36 pb-24">
@@ -73,18 +70,18 @@ export const DestinationsPage: React.FC = () => {
           </h1>
 
           <p className="text-base sm:text-lg text-slate-muted mt-4 font-light leading-relaxed">
-            From the tranquil backwaters of South India to the majestic summits of the Swiss Alps, explore our hand-curated collection of domestic and international journeys. Each destination is paced with mindful care and verified boutique stays.
+            From the tranquil backwaters of Kerala and the misty slopes of Ooty to the majestic snow-capped peaks of Kashmir and the royal palaces of Rajasthan, explore our hand-curated collection of Indian domestic journeys. Each destination is paced with mindful care, premium coaches, and verified boutique stays.
           </p>
         </div>
 
         {/* ========================================================= */}
-        {/* REGION SEGMENTATION TABS & QUICK CONTROLS                 */}
+        {/* DOMESTIC SEGMENTATION TABS & QUICK CONTROLS               */}
         {/* ========================================================= */}
         <div className="flex flex-wrap items-center gap-3 mb-8">
           <button
-            onClick={() => setSelectedRegion('All')}
+            onClick={() => setSelectedType('All')}
             className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
-              selectedRegion === 'All'
+              selectedType === 'All'
                 ? 'bg-navy-midnight text-gold-royal shadow-sm'
                 : 'bg-white text-slate-body border border-sand-border hover:bg-sand-card'
             }`}
@@ -94,27 +91,39 @@ export const DestinationsPage: React.FC = () => {
           </button>
 
           <button
-            onClick={() => setSelectedRegion('International')}
+            onClick={() => setSelectedType('Leisure')}
             className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
-              selectedRegion === 'International'
-                ? 'bg-navy-midnight text-gold-royal shadow-sm'
-                : 'bg-white text-slate-body border border-sand-border hover:bg-sand-card'
-            }`}
-          >
-            <Globe className="w-4 h-4 text-gold-metallic" />
-            <span>International Tours ({intlCount})</span>
-          </button>
-
-          <button
-            onClick={() => setSelectedRegion('Domestic')}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
-              selectedRegion === 'Domestic'
+              selectedType === 'Leisure'
                 ? 'bg-navy-midnight text-gold-royal shadow-sm'
                 : 'bg-white text-slate-body border border-sand-border hover:bg-sand-card'
             }`}
           >
             <Mountain className="w-4 h-4 text-gold-metallic" />
-            <span>Domestic Journeys ({domesticCount})</span>
+            <span>Hill Stations & Leisure ({DESTINATIONS.filter(d => d.categories.includes('Leisure')).length})</span>
+          </button>
+
+          <button
+            onClick={() => setSelectedType('Cultural')}
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
+              selectedType === 'Cultural'
+                ? 'bg-navy-midnight text-gold-royal shadow-sm'
+                : 'bg-white text-slate-body border border-sand-border hover:bg-sand-card'
+            }`}
+          >
+            <Sparkles className="w-4 h-4 text-gold-metallic" />
+            <span>Heritage & Cultural ({DESTINATIONS.filter(d => d.categories.includes('Cultural')).length})</span>
+          </button>
+
+          <button
+            onClick={() => setSelectedType('Honeymoon')}
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
+              selectedType === 'Honeymoon'
+                ? 'bg-navy-midnight text-gold-royal shadow-sm'
+                : 'bg-white text-slate-body border border-sand-border hover:bg-sand-card'
+            }`}
+          >
+            <Compass className="w-4 h-4 text-gold-metallic" />
+            <span>Romantic & Honeymoon ({DESTINATIONS.filter(d => d.categories.includes('Honeymoon')).length})</span>
           </button>
         </div>
 

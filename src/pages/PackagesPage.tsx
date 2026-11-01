@@ -83,7 +83,7 @@ export const PackagesPage: React.FC = () => {
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search packages (e.g. Bali, Swiss, Kerala)..."
+                placeholder="Search packages (e.g. Ooty, Kerala, Kashmir)..."
                 className="w-full pl-9 pr-3 py-2.5 text-sm bg-sand-ivory border border-sand-border rounded-lg text-navy-primary focus:outline-none focus:border-gold-royal font-sans"
               />
             </div>
@@ -110,9 +110,8 @@ export const PackagesPage: React.FC = () => {
                 onChange={(e) => setSelectedRegion(e.target.value)}
                 className="w-full px-3 py-2.5 text-sm bg-sand-ivory border border-sand-border rounded-lg text-navy-primary focus:outline-none focus:border-gold-royal font-sans"
               >
-                <option value="All">All Regions (Domestic & Intl)</option>
-                <option value="Domestic">Domestic Tours (India)</option>
-                <option value="International">International Packages</option>
+                <option value="All">All Destinations (India Domestic)</option>
+                <option value="Domestic">Exclusive Indian Circuits</option>
               </select>
             </div>
 
@@ -221,13 +220,13 @@ export const PackagesPage: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <Link
                         to={`/packages/${pkg.slug}`}
-                        className="px-3.5 py-2 rounded-lg text-xs font-semibold text-navy-primary border border-sand-border hover:bg-sand-ivory transition-colors"
+                        className="btn-secondary text-xs py-2 px-3.5"
                       >
                         Details
                       </Link>
                       <button
                         onClick={() => handleOpenEnquiry(pkg.slug, pkg.title)}
-                        className="px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider text-navy-midnight bg-gradient-to-r from-gold-light to-gold-royal hover:brightness-110 transition-all shadow-sm"
+                        className="btn-primary text-xs py-2 px-4"
                       >
                         Enquire
                       </button>

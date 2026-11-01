@@ -27,8 +27,8 @@ export const TripPlannerPage: React.FC = () => {
   // Form State
   const [formData, setFormData] = useState({
     // Step 1: Destination
-    destinationType: 'International' as 'Domestic' | 'International' | 'Open to suggestions',
-    preferredDestination: 'Bali, Indonesia',
+    destinationType: 'Domestic' as 'Domestic' | 'Hill Stations' | 'Open to suggestions',
+    preferredDestination: 'Ooty, Tamil Nadu',
     
     // Step 2: Travel Details
     departureCity: 'Chennai',
@@ -196,8 +196,8 @@ export const TripPlannerPage: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
-                  { id: 'International', title: 'International', desc: 'Bali, Switzerland, Dubai, Maldives, Thailand' },
-                  { id: 'Domestic', title: 'Domestic (India)', desc: 'Kerala, Kashmir, Rajasthan, South India' },
+                  { id: 'Domestic', title: 'All India Circuits', desc: 'Ooty, Munnar, Kashmir, Goa, Rajasthan, Mysore' },
+                  { id: 'Hill Stations', title: 'Hill Stations & Mist', desc: 'Ooty, Kodaikanal, Coorg, Wayanad, Manali, Darjeeling' },
                   { id: 'Open to suggestions', title: 'Open to Ideas', desc: 'Let our concierge recommend based on season' }
                 ].map((opt) => (
                   <button
@@ -230,10 +230,15 @@ export const TripPlannerPage: React.FC = () => {
                     onChange={(e) => setFormData({ ...formData, preferredDestination: e.target.value })}
                     className="w-full px-4 py-3 bg-sand-ivory border border-sand-border rounded-xl text-navy-primary focus:outline-none focus:border-gold-royal font-sans"
                   >
-                    {DESTINATIONS.filter(d => d.region === formData.destinationType).map((d) => (
+                    {DESTINATIONS.filter(d => {
+                      if (formData.destinationType === 'Hill Stations') {
+                        return d.categories.includes('Leisure') || d.categories.includes('Adventure');
+                      }
+                      return true;
+                    }).map((d) => (
                       <option key={d.id} value={`${d.name}, ${d.country}`}>{d.name} ({d.country})</option>
                     ))}
-                    <option value="Custom Other">Other (I will specify in notes)</option>
+                    <option value="Custom Other">Other Indian Destination (specify in notes)</option>
                   </select>
                 </div>
               )}
@@ -387,12 +392,12 @@ export const TripPlannerPage: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {[
-                  { range: 'Under ₹25,000', note: 'Ideal for short domestic getaways & weekend escapes' },
-                  { range: '₹25,000–₹50,000', note: 'Comfortable domestic tours or South East Asia short packages' },
-                  { range: '₹50,000–₹1,00,000', note: 'Deluxe Bali, Dubai, Thailand packages with private pool villas' },
-                  { range: '₹1,00,000–₹2,00,000', note: 'European circuits, Swiss scenic railways, Maldives water villas' },
-                  { range: 'Above ₹2,00,000', note: 'Ultra-luxury bespoke itineraries, five-star private arrangements' },
-                  { range: 'Not sure yet', note: 'Recommend based on the destination and itinerary recommendations' }
+                  { range: 'Under ₹25,000', note: 'Ideal for short weekend hill retreats (Ooty, Kodaikanal, Mysore)' },
+                  { range: '₹25,000–₹50,000', note: 'Comfortable 4–5 day South Indian or Western Ghats holidays with private coach' },
+                  { range: '₹50,000–₹1,00,000', note: 'Premium heritage retreats, luxury Kerala houseboats & Goa beachside resorts' },
+                  { range: '₹1,00,000–₹2,00,000', note: 'Royal Rajasthan palace circuits, grand Kashmir valley tours, 5-star hill villas' },
+                  { range: 'Above ₹2,00,000', note: 'Ultra-luxury bespoke domestic journeys, private family tour coaches & royal suites' },
+                  { range: 'Not sure yet', note: 'Recommend based on destination & customized route recommendations' }
                 ].map((item) => (
                   <button
                     key={item.range}
@@ -480,7 +485,7 @@ export const TripPlannerPage: React.FC = () => {
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+91 98400 12345"
+                    placeholder="e.g. 6380792722"
                     className="w-full px-4 py-2.5 bg-sand-ivory border border-sand-border rounded-xl text-navy-primary focus:outline-none focus:border-gold-royal font-sans"
                   />
                 </div>
@@ -614,9 +619,9 @@ export const TripPlannerPage: React.FC = () => {
               <button
                 type="button"
                 onClick={handleBack}
-                className="px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-navy-primary border border-sand-border hover:bg-sand-card flex items-center gap-2 transition-colors"
+                className="btn-secondary py-2.5 px-5"
               >
-                <ArrowLeft className="w-3.5 h-3.5" />
+                <ArrowLeft className="w-3.5 h-3.5 btn-no-move" />
                 <span>Back</span>
               </button>
             ) : (
@@ -627,19 +632,19 @@ export const TripPlannerPage: React.FC = () => {
               <button
                 type="button"
                 onClick={handleNext}
-                className="px-7 py-3 rounded-full text-xs font-semibold uppercase tracking-wider text-navy-midnight bg-gradient-to-r from-gold-light via-gold-royal to-gold-metallic hover:brightness-110 active:scale-95 transition-all shadow-gold-glow flex items-center gap-2"
+                className="btn-primary py-3 px-7"
               >
                 <span>Continue</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5 btn-arrow" />
               </button>
             ) : (
               <button
                 type="button"
                 onClick={handleSubmit}
                 disabled={submitting}
-                className="px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider text-navy-midnight bg-gradient-to-r from-gold-light via-gold-royal to-gold-metallic hover:brightness-110 active:scale-95 transition-all shadow-gold-glow flex items-center gap-2"
+                className="btn-primary py-3.5 px-8"
               >
-                <Send className="w-4 h-4" />
+                <Send className="w-4 h-4 btn-no-move" />
                 <span>{submitting ? 'Generating Blueprint...' : 'Submit Travel Request'}</span>
               </button>
             )}
