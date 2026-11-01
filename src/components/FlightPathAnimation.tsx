@@ -26,11 +26,12 @@ export const FlightPathAnimation: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Smooth fallback calculation for tour bus position along the curve across all devices
+  // Smooth calculation for tour bus position and continuous angle along the highway curve
   useEffect(() => {
     if (!isVisible) return;
     let animId: number;
     let startTime: number | null = null;
+    let smoothedAngle = 0;
     const duration = 16000; // 16s loop
 
     const step = (timestamp: number) => {
@@ -45,11 +46,18 @@ export const FlightPathAnimation: React.FC = () => {
           const totalLen = path.getTotalLength();
           const currentLen = progress * totalLen;
           const pt = path.getPointAtLength(currentLen);
-          // Look slightly ahead to calculate tangent angle
-          const aheadLen = Math.min(totalLen, currentLen + 2);
+          // Look ahead along curve for continuous tangent angle
+          const aheadLen = Math.min(totalLen, currentLen + 4);
           const aheadPt = path.getPointAtLength(aheadLen);
-          const angle = Math.atan2(aheadPt.y - pt.y, aheadPt.x - pt.x) * (180 / Math.PI);
-          setBusPosition({ x: pt.x, y: pt.y, angle });
+          const rawAngle = Math.atan2(aheadPt.y - pt.y, aheadPt.x - pt.x) * (180 / Math.PI);
+          
+          // Smooth angle wrapping around 360 to avoid sudden snapping
+          let diff = rawAngle - smoothedAngle;
+          while (diff < -180) diff += 360;
+          while (diff > 180) diff -= 360;
+          smoothedAngle += diff * 0.18;
+
+          setBusPosition({ x: pt.x, y: pt.y, angle: smoothedAngle });
         } catch {
           // SVG totalLength fallback
         }
@@ -315,6 +323,7 @@ export const FlightPathAnimation: React.FC = () => {
           {/* Interactive Domestic Destination Waypoint Markers */}
           {waypoints.map((wp) => {
             const Icon = wp.icon;
+            const isNear = isVisible && Math.abs(busProgress - wp.progressThreshold) < 0.055;
             const isPassed = isVisible && busProgress >= wp.progressThreshold;
 
             return (
@@ -330,13 +339,15 @@ export const FlightPathAnimation: React.FC = () => {
                   aria-label={`Explore ${wp.name}`}
                 >
                   <span
-                    className={`animate-ping absolute inline-flex h-6 w-6 rounded-full bg-gold-royal transition-opacity ${
-                      isPassed ? 'opacity-50' : 'opacity-20'
+                    className={`animate-ping absolute inline-flex h-6 w-6 rounded-full bg-gold-royal transition-opacity duration-300 ${
+                      isNear ? 'opacity-80 scale-125' : isPassed ? 'opacity-40' : 'opacity-15'
                     }`}
                   />
                   <span
                     className={`relative inline-flex items-center justify-center rounded-full h-4 w-4 sm:h-5 sm:w-5 bg-gradient-to-tr from-navy-midnight via-navy-royal to-gold-royal border border-gold-royal transition-all duration-300 group-hover:scale-125 ${
-                      isPassed
+                      isNear
+                        ? 'shadow-[0_0_20px_#F5B82E,0_0_35px_rgba(245,184,46,0.5)] scale-110 text-gold-light border-gold-light'
+                        : isPassed
                         ? 'shadow-[0_0_12px_#F5B82E] text-gold-royal'
                         : 'shadow-sm text-sand-ivory/60'
                     }`}
@@ -347,7 +358,9 @@ export const FlightPathAnimation: React.FC = () => {
 
                 {/* Waypoint Label */}
                 <div className="mt-2 text-center transition-transform duration-300 group-hover:scale-110 pointer-events-none">
-                  <span className="block text-[10px] sm:text-[11px] font-mono tracking-wider text-gold-royal font-bold drop-shadow">
+                  <span className={`block text-[10px] sm:text-[11px] font-mono tracking-wider font-bold drop-shadow transition-colors ${
+                    isNear ? 'text-gold-light scale-105' : 'text-gold-royal'
+                  }`}>
                     {wp.code}
                   </span>
                   <span className="hidden sm:block text-xs font-serif text-white font-medium whitespace-nowrap drop-shadow-md">

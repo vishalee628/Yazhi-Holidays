@@ -4,6 +4,8 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { SearchModal } from './components/SearchModal';
 import { ScrollToTop } from './components/ScrollToTop';
+import { CustomCursor } from './components/CustomCursor';
+import { useScrollReveal } from './hooks/useScrollReveal';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -27,11 +29,17 @@ const AppContent: React.FC = () => {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const location = useLocation();
 
+  // Activate scroll-triggered reveals across all public pages
+  useScrollReveal();
+
   const isAdminDashboard = location.pathname.startsWith('/admin/dashboard') || location.pathname === '/admin';
   const isAdminLogin = location.pathname === '/admin/login';
 
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Premium Brand Custom Cursor */}
+      <CustomCursor />
+
       <ScrollToTop />
       
       {/* Show public navbar on non-admin dashboard pages */}
@@ -39,8 +47,8 @@ const AppContent: React.FC = () => {
         <Navbar onOpenSearch={() => setSearchModalOpen(true)} />
       )}
 
-      {/* Main Page Routes */}
-      <main className="flex-1">
+      {/* Main Page Routes with Smooth Cinematic Page Transitions */}
+      <main key={location.pathname} className="flex-1 animate-page-enter">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/destinations" element={<DestinationsPage />} />

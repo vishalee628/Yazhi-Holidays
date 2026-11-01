@@ -73,16 +73,38 @@
   width: 100%;
 }
 
+/* Page Transition Animation (Smooth Seamless Entry) */
+@keyframes pageEnter {
+  0% {
+    opacity: 0.85;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-enter {
+  animation: pageEnter 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 /* Keyframe Animations for Cinematic Hero & Entrance */
 @keyframes heroFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+  }
 }
 
 @keyframes heroFadeUp {
   from {
     opacity: 0;
-    transform: translateY(22px);
+    transform: translateY(28px);
   }
   to {
     opacity: 1;
@@ -102,20 +124,21 @@
 }
 
 .animate-hero-fade {
-  animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: heroFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-hero-title {
-  animation: heroFadeUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: heroFadeUp 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+  opacity: 0;
 }
 
 .animate-hero-sub {
-  animation: heroFadeUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  animation: heroFadeUp 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.28s forwards;
   opacity: 0;
 }
 
 .animate-hero-cta {
-  animation: heroFadeUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+  animation: heroFadeUp 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.44s forwards;
   opacity: 0;
 }
 
@@ -123,13 +146,52 @@
   animation: dropdownSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Subtle image zoom transition */
+/* Scroll-Triggered Reveal Animations (Animate Once, No Flickering) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.08s; }
+.stagger-2 { transition-delay: 0.16s; }
+.stagger-3 { transition-delay: 0.24s; }
+.stagger-4 { transition-delay: 0.32s; }
+.stagger-5 { transition-delay: 0.40s; }
+.stagger-6 { transition-delay: 0.48s; }
+
+/* Enhanced Destination & Package Card Hover Effects */
+.destination-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s ease;
+  will-change: transform, box-shadow;
+}
+
+.destination-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 184, 46, 0.45);
+  box-shadow: 0 16px 36px -8px rgba(245, 184, 46, 0.22), 0 6px 16px rgba(7, 29, 58, 0.08);
+}
+
 .destination-card-img {
   transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  will-change: transform;
 }
 
 .destination-card:hover .destination-card-img {
-  transform: scale(1.045);
+  transform: scale(1.055);
+}
+
+.destination-card:hover .btn-arrow,
+.destination-card:hover svg.btn-arrow {
+  transform: translateX(4px);
 }
 
 /* Card hover lift */
@@ -138,7 +200,8 @@
 }
 
 .card-lift:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px -6px rgba(245, 184, 46, 0.18), 0 4px 12px rgba(7, 29, 58, 0.06);
 }
 
 /* Elegant custom scrollbar */
@@ -511,6 +574,19 @@ svg.btn-arrow, .btn-primary svg, .btn-primary-navy svg, .btn-secondary svg, .btn
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Custom Cursor Desktop Integration */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a, button, [role="button"], .cursor-pointer {
+    cursor: none;
+  }
+  /* Ensure form controls, inputs, and editable text retain native accessible text cursor */
+  input, textarea, select, [contenteditable="true"] {
+    cursor: text !important;
+  }
+}
 
 /* Accessibility: Respect Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
