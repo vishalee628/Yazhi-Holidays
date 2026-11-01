@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Search, Menu, X, ChevronDown, Sparkles, ShieldCheck, MapPin, ArrowRight, Phone } from 'lucide-react';
-import { DESTINATIONS } from '../data/travelData';
+import { Search, Menu, X, Sparkles, ShieldCheck, Phone } from 'lucide-react';
 
 interface NavbarProps {
   onOpenSearch: () => void;
@@ -10,9 +9,6 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [destDropdownOpen, setDestDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -30,28 +26,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
   // Close menus on route change
   useEffect(() => {
     setMobileMenuOpen(false);
-    setDestDropdownOpen(false);
   }, [location.pathname]);
 
-  // Click outside to close dropdown
+  // Handle escape key to close mobile menu
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setDestDropdownOpen(false);
-      }
-    };
-
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setDestDropdownOpen(false);
         setMobileMenuOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('keydown', handleKeyDown);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
@@ -68,21 +54,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
     };
   }, [mobileMenuOpen]);
 
-  const handleMouseEnter = () => {
-    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-    setDestDropdownOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    hoverTimeoutRef.current = setTimeout(() => {
-      setDestDropdownOpen(false);
-    }, 200);
-  };
-
   const isHome = location.pathname === '/';
   const isSolidNavbar = !isHome || scrolled;
-  const hillStationDests = DESTINATIONS.filter(d => ['ooty', 'kodaikanal', 'munnar', 'coorg', 'wayanad', 'manali'].includes(d.slug));
-  const heritageCoastalDests = DESTINATIONS.filter(d => ['goa', 'mysore', 'hampi', 'jaipur', 'kashmir', 'rameswaram-madurai-kanyakumari'].includes(d.slug));
 
   return (
     <header
@@ -134,111 +107,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             className="hidden lg:flex items-center justify-center gap-5 xl:gap-8 text-[13px] xl:text-sm font-medium tracking-wide"
             aria-label="Main Navigation"
           >
-            {/* 1. Destinations with Accessible Dropdown */}
-            <div 
-              ref={dropdownRef}
-              className="relative"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
+            {/* 1. Destinations */}
+            <Link
+              to="/destinations"
+              className={`nav-link py-2 whitespace-nowrap transition-colors ${
+                location.pathname.startsWith('/destinations')
+                  ? 'text-gold-royal active font-semibold'
+                  : 'text-white hover:text-gold-royal'
+              }`}
             >
-              <div className="flex items-center">
-                <Link
-                  to="/destinations"
-                  className={`nav-link flex items-center gap-1.5 py-2 whitespace-nowrap transition-colors ${
-                    location.pathname.startsWith('/destinations')
-                      ? 'text-gold-royal active font-semibold'
-                      : 'text-white hover:text-gold-royal'
-                  }`}
-                  aria-expanded={destDropdownOpen}
-                >
-                  <span>Destinations</span>
-                  <ChevronDown className={`w-3.5 h-3.5 text-gold-royal transition-transform duration-300 ${destDropdownOpen ? 'rotate-180' : ''}`} />
-                </Link>
-              </div>
-
-              {/* Accessible Destinations Dropdown */}
-              {destDropdownOpen && (
-                <div 
-                  className="absolute top-full -left-12 xl:left-0 w-[580px] bg-[#041329] border border-gold-royal/35 rounded-2xl shadow-luxury-dark p-6 z-50 backdrop-blur-2xl animate-dropdown overflow-hidden"
-                  role="menu"
-                >
-                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold-royal to-transparent"></div>
-
-                  <div className="grid grid-cols-2 gap-6 pb-5 border-b border-navy-royal/60">
-                    
-                    {/* Column 1: Hill Stations & Plantations */}
-                    <div>
-                      <div className="flex items-center gap-1.5 text-[11px] font-mono tracking-widest text-gold-royal uppercase pb-2 mb-2 border-b border-navy-royal/40 font-semibold">
-                        <MapPin className="w-3 h-3 text-gold-royal" />
-                        <span>Hill Stations & Mist</span>
-                      </div>
-                      <div className="space-y-1">
-                        {hillStationDests.slice(0, 5).map((dest) => (
-                          <Link
-                            key={dest.id}
-                            to={`/destinations/${dest.slug}`}
-                            className="flex items-center justify-between p-2 rounded-lg text-xs text-white/90 hover:text-white hover:bg-navy-royal/40 group transition-all"
-                            role="menuitem"
-                          >
-                            <span className="font-medium group-hover:text-gold-light transition-colors">{dest.name}</span>
-                            <span className="text-[10px] font-mono text-gold-royal font-semibold">
-                              From ₹{dest.startingPriceINR.toLocaleString('en-IN')}
-                            </span>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Column 2: Heritage & Coastal Circuits */}
-                    <div>
-                      <div className="flex items-center gap-1.5 text-[11px] font-mono tracking-widest text-gold-royal uppercase pb-2 mb-2 border-b border-navy-royal/40 font-semibold">
-                        <Sparkles className="w-3 h-3 text-gold-royal" />
-                        <span>Heritage & Coastal</span>
-                      </div>
-                      <div className="space-y-1">
-                        {heritageCoastalDests.slice(0, 5).map((dest) => (
-                          <Link
-                            key={dest.id}
-                            to={`/destinations/${dest.slug}`}
-                            className="flex items-center justify-between p-2 rounded-lg text-xs text-white/90 hover:text-white hover:bg-navy-royal/40 group transition-all"
-                            role="menuitem"
-                          >
-                            <span className="font-medium group-hover:text-gold-light transition-colors">{dest.name}</span>
-                            <span className="text-[10px] font-mono text-gold-royal font-semibold">
-                              From ₹{dest.startingPriceINR.toLocaleString('en-IN')}
-                            </span>
-                          </Link>
-                        ))}
-
-                        <div className="mt-3 p-3 rounded-xl bg-navy-royal/30 border border-gold-royal/20">
-                          <span className="text-[10px] font-mono text-gold-light block uppercase font-medium">Bespoke Pacing</span>
-                          <p className="text-[11px] text-white/80 mt-0.5 leading-snug">
-                            All routes are 100% customizable around your private travel dates.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  {/* Dropdown Bottom Banner Link */}
-                  <div className="pt-4 flex items-center justify-between">
-                    <span className="text-xs text-white/70">
-                      Looking for a tailored journey?
-                    </span>
-                    <Link
-                      to="/destinations"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-gold-royal hover:text-gold-light transition-colors"
-                      role="menuitem"
-                    >
-                      <span>Discover Your Next Destination</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-
-                </div>
-              )}
-            </div>
+              Destinations
+            </Link>
 
             {/* 2. Holiday Packages */}
             <Link
@@ -369,12 +248,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
 
             <Link
               to="/destinations"
-              className={`py-3 px-3 rounded-xl font-medium transition-colors border-b border-navy-royal/30 flex items-center justify-between ${
+              className={`py-3 px-3 rounded-xl font-medium transition-colors border-b border-navy-royal/30 ${
                 location.pathname.startsWith('/destinations') ? 'text-gold-royal font-semibold bg-navy-royal/30' : 'text-white hover:text-gold-royal'
               }`}
             >
-              <span>Discover Your Next Destination</span>
-              <span className="text-xs text-gold-royal font-mono bg-navy-royal/50 px-2 py-0.5 rounded-full">8+ Places</span>
+              Destinations
             </Link>
 
             <Link
