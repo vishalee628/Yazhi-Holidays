@@ -107,7 +107,7 @@ export const HappyCustomersGallery: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 reveal-on-scroll">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sand-ivory border border-gold-royal/30 text-gold-metallic text-xs font-mono uppercase tracking-widest mb-3 shadow-sm">
             <Camera className="w-3.5 h-3.5 text-gold-royal" />
             <span>AUTHENTIC TRAVEL MOMENTS</span>
@@ -226,7 +226,7 @@ export const HappyCustomersGallery: React.FC = () => {
                 <div
                   key={photo.id}
                   onClick={() => handleOpenLightbox(index)}
-                  className={`relative rounded-2xl overflow-hidden cursor-pointer group shadow-luxury border border-sand-border bg-navy-midnight transition-all duration-500 hover:shadow-2xl hover:border-gold-royal/50 hover:-translate-y-1 reveal-on-scroll stagger-${(index % 4) + 1} ${
+                  className={`relative rounded-2xl overflow-hidden cursor-pointer group shadow-luxury border border-sand-border bg-navy-midnight transition-all duration-500 hover:shadow-2xl hover:border-gold-royal/50 hover:-translate-y-1 ${
                     isTall ? 'sm:row-span-2' : ''
                   } ${isWide ? 'lg:col-span-2' : ''}`}
                   role="button"

@@ -192,7 +192,6 @@ export const HomePage: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 animate-hero-cta">
               <Link
                 to="/destinations"
-                data-magnetic="true"
                 className="btn-hero-primary group"
               >
                 <span>Explore Destinations</span>
@@ -201,7 +200,6 @@ export const HomePage: React.FC = () => {
               
               <Link
                 to="/plan-trip"
-                data-magnetic="true"
                 className="btn-hero-secondary group"
               >
                 <span>Design Your Journey</span>
@@ -367,7 +365,7 @@ export const HomePage: React.FC = () => {
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Editorial Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 reveal-on-scroll">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div className="max-w-xl">
             <span className="text-xs font-mono uppercase tracking-widest text-gold-metallic block mb-2">
               CURATED ESCAPES
@@ -392,7 +390,7 @@ export const HomePage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
           {/* 1 Large Featured Destination Panel (Cols 1-7) with 3D Tilt */}
-          <div className="lg:col-span-7 reveal-on-scroll stagger-1">
+          <div className="lg:col-span-7">
             <TiltCard className="h-full">
               <div className="group relative h-[480px] sm:h-[560px] rounded-3xl overflow-hidden shadow-luxury destination-card">
                 <img
@@ -445,49 +443,47 @@ export const HomePage: React.FC = () => {
 
           {/* 2 Medium Destination Panels (Cols 8-12) with 3D Tilt */}
           <div className="lg:col-span-5 flex flex-col gap-8">
-            {DESTINATIONS.slice(1, 3).map((dest, idx) => (
-              <div key={dest.id} className={`reveal-on-scroll stagger-${idx + 2}`}>
-                <TiltCard>
-                  <div className="group relative h-[264px] rounded-3xl overflow-hidden shadow-luxury destination-card">
-                    <img
-                      src={dest.heroImage}
-                      alt={dest.name}
-                      className="w-full h-full object-cover destination-card-img brightness-[0.82]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy-midnight via-navy-midnight/40 to-transparent"></div>
-                    
-                    <div className="absolute top-4 left-4">
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider bg-navy-midnight/80 text-gold-light border border-gold-royal/30 backdrop-blur-md">
-                        {dest.region}
-                      </span>
-                    </div>
+            {DESTINATIONS.slice(1, 3).map((dest) => (
+              <TiltCard key={dest.id}>
+                <div className="group relative h-[264px] rounded-3xl overflow-hidden shadow-luxury destination-card">
+                  <img
+                    src={dest.heroImage}
+                    alt={dest.name}
+                    className="w-full h-full object-cover destination-card-img brightness-[0.82]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-midnight via-navy-midnight/40 to-transparent"></div>
+                  
+                  <div className="absolute top-4 left-4">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider bg-navy-midnight/80 text-gold-light border border-gold-royal/30 backdrop-blur-md">
+                      {dest.region}
+                    </span>
+                  </div>
 
-                    <div className="absolute bottom-4 left-4 right-4 text-white space-y-1.5">
-                      <div className="text-[11px] text-gold-royal/90 font-mono flex items-center gap-1">
-                        <MapPin className="w-3 h-3" />
-                        <span>{dest.country}</span>
-                        <span>•</span>
-                        <span>{dest.duration}</span>
-                      </div>
-                      <h4 className="font-serif text-2xl text-white font-medium group-hover:text-gold-light transition-colors">
-                        {dest.name}
-                      </h4>
-                      <div className="flex items-center justify-between pt-1 border-t border-white/10 text-xs">
-                        <span className="text-sand-ivory/80">
-                          Starting <strong className="text-gold-royal font-mono">₹{dest.startingPriceINR.toLocaleString('en-IN')}</strong>
-                        </span>
-                        <Link
-                          to={`/destinations/${dest.slug}`}
-                          className="btn-primary text-xs py-1.5 px-3.5 group"
-                        >
-                          <span>Explore</span>
-                          <ArrowRight className="w-3 h-3 btn-arrow" />
-                        </Link>
-                      </div>
+                  <div className="absolute bottom-4 left-4 right-4 text-white space-y-1.5">
+                    <div className="text-[11px] text-gold-royal/90 font-mono flex items-center gap-1">
+                      <MapPin className="w-3 h-3" />
+                      <span>{dest.country}</span>
+                      <span>•</span>
+                      <span>{dest.duration}</span>
+                    </div>
+                    <h4 className="font-serif text-2xl text-white font-medium group-hover:text-gold-light transition-colors">
+                      {dest.name}
+                    </h4>
+                    <div className="flex items-center justify-between pt-1 border-t border-white/10 text-xs">
+                      <span className="text-sand-ivory/80">
+                        Starting <strong className="text-gold-royal font-mono">₹{dest.startingPriceINR.toLocaleString('en-IN')}</strong>
+                      </span>
+                      <Link
+                        to={`/destinations/${dest.slug}`}
+                        className="btn-primary text-xs py-1.5 px-3.5 group"
+                      >
+                        <span>Explore</span>
+                        <ArrowRight className="w-3 h-3 btn-arrow" />
+                      </Link>
                     </div>
                   </div>
-                </TiltCard>
-              </div>
+                </div>
+              </TiltCard>
             ))}
           </div>
 
@@ -495,53 +491,51 @@ export const HomePage: React.FC = () => {
 
         {/* 3 Smaller Balanced Destination Cards Below with 3D Tilt */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-          {DESTINATIONS.slice(3, 6).map((dest, idx) => (
-            <div key={dest.id} className={`reveal-on-scroll stagger-${idx + 1} h-full`}>
-              <TiltCard className="h-full">
-                <div className="group bg-white rounded-3xl overflow-hidden shadow-luxury border border-sand-border destination-card flex flex-col h-full">
-                  <div className="relative h-56 overflow-hidden">
-                    <img
-                      src={dest.thumbnail}
-                      alt={dest.name}
-                      className="w-full h-full object-cover destination-card-img"
-                    />
-                    <div className="absolute top-3 left-3">
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider bg-navy-midnight/80 text-gold-royal border border-gold-royal/30 backdrop-blur-md">
-                        {dest.region}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <div className="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                      <span className="text-xs font-mono text-slate-muted block mb-1">
-                        {dest.country} • {dest.duration}
-                      </span>
-                      <h4 className="font-serif text-2xl font-semibold text-navy-primary group-hover:text-gold-metallic transition-colors">
-                        {dest.name}
-                      </h4>
-                      <p className="text-xs text-slate-muted mt-2 line-clamp-2 leading-relaxed">
-                        {dest.tagline}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 mt-4 border-t border-sand-border flex items-center justify-between">
-                      <div>
-                        <span className="text-[10px] text-slate-muted block">Starting From</span>
-                        <span className="text-sm font-bold text-navy-primary font-mono">₹{dest.startingPriceINR.toLocaleString('en-IN')}</span>
-                      </div>
-                      <Link
-                        to={`/destinations/${dest.slug}`}
-                        className="btn-secondary text-xs py-1.5 px-3.5 group"
-                      >
-                        <span>Explore</span>
-                        <ChevronRight className="w-3.5 h-3.5 btn-arrow text-gold-royal" />
-                      </Link>
-                    </div>
+          {DESTINATIONS.slice(3, 6).map((dest) => (
+            <TiltCard key={dest.id} className="h-full">
+              <div className="group bg-white rounded-3xl overflow-hidden shadow-luxury border border-sand-border destination-card flex flex-col h-full">
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={dest.thumbnail}
+                    alt={dest.name}
+                    className="w-full h-full object-cover destination-card-img"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider bg-navy-midnight/80 text-gold-royal border border-gold-royal/30 backdrop-blur-md">
+                      {dest.region}
+                    </span>
                   </div>
                 </div>
-              </TiltCard>
-            </div>
+                
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <span className="text-xs font-mono text-slate-muted block mb-1">
+                      {dest.country} • {dest.duration}
+                    </span>
+                    <h4 className="font-serif text-2xl font-semibold text-navy-primary group-hover:text-gold-metallic transition-colors">
+                      {dest.name}
+                    </h4>
+                    <p className="text-xs text-slate-muted mt-2 line-clamp-2 leading-relaxed">
+                      {dest.tagline}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 mt-4 border-t border-sand-border flex items-center justify-between">
+                    <div>
+                      <span className="text-[10px] text-slate-muted block">Starting From</span>
+                      <span className="text-sm font-bold text-navy-primary font-mono">₹{dest.startingPriceINR.toLocaleString('en-IN')}</span>
+                    </div>
+                    <Link
+                      to={`/destinations/${dest.slug}`}
+                      className="btn-secondary text-xs py-1.5 px-3.5 group"
+                    >
+                      <span>Explore</span>
+                      <ChevronRight className="w-3.5 h-3.5 btn-arrow text-gold-royal" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </TiltCard>
           ))}
         </div>
 
@@ -553,7 +547,7 @@ export const HomePage: React.FC = () => {
       {/* SECTION 6: SIGNATURE HOLIDAY COLLECTIONS */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+        <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-gold-metallic block mb-2">
             DESIGNED FOR EVERY WAY YOU TRAVEL
           </span>
@@ -566,11 +560,11 @@ export const HomePage: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {COLLECTIONS.map((col, idx) => (
+          {COLLECTIONS.map((col) => (
             <Link
               key={col.id}
               to={`/packages?type=${col.category}`}
-              className={`group relative h-96 rounded-2xl overflow-hidden shadow-luxury destination-card flex flex-col justify-end p-8 text-white reveal-on-scroll stagger-${(idx % 3) + 1}`}
+              className="group relative h-96 rounded-2xl overflow-hidden shadow-luxury destination-card flex flex-col justify-end p-8 text-white"
             >
               <img
                 src={col.image}
@@ -604,7 +598,7 @@ export const HomePage: React.FC = () => {
       <section className="py-24 bg-sand-card border-y border-sand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal-on-scroll">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-gold-metallic block mb-2">
                 VERIFIED SAMPLE PACKAGES
@@ -637,10 +631,10 @@ export const HomePage: React.FC = () => {
 
           {/* Packages Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {displayedPackages.map((pkg, idx) => (
+            {displayedPackages.map((pkg) => (
               <div 
                 key={pkg.id}
-                className={`bg-white rounded-2xl overflow-hidden shadow-luxury border border-sand-border flex flex-col sm:flex-row group transition-all hover:border-gold-royal/40 reveal-on-scroll stagger-${(idx % 2) + 1}`}
+                className="bg-white rounded-2xl overflow-hidden shadow-luxury border border-sand-border flex flex-col sm:flex-row group transition-all hover:border-gold-royal/40"
               >
                 {/* Image */}
                 <div className="sm:w-2/5 relative h-64 sm:h-auto overflow-hidden flex-shrink-0">
@@ -716,7 +710,7 @@ export const HomePage: React.FC = () => {
             ))}
           </div>
 
-          <div className="text-center mt-12 reveal-on-scroll">
+          <div className="text-center mt-12">
             <Link
               to="/packages"
               className="btn-primary py-3.5 px-8 group"
@@ -732,7 +726,7 @@ export const HomePage: React.FC = () => {
       {/* SECTION 8: WHY TRAVEL WITH YAZHI? (Editorial Pillars) */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="max-w-2xl mx-auto text-center mb-16 reveal-on-scroll">
+        <div className="max-w-2xl mx-auto text-center mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-gold-metallic block mb-2">
             THE YAZHI STANDARD
           </span>
@@ -776,10 +770,10 @@ export const HomePage: React.FC = () => {
               title: 'Support Before & During',
               desc: 'Complete documentation, visa preparation, and 24/7 on-ground emergency coordination from departure to return flight.'
             }
-          ].map((pillar, idx) => (
+          ].map((pillar) => (
             <div 
               key={pillar.num}
-              className={`p-8 rounded-2xl bg-white border border-sand-border hover:border-gold-royal/40 shadow-sm transition-all group reveal-on-scroll stagger-${(idx % 3) + 1}`}
+              className="p-8 rounded-2xl bg-white border border-sand-border hover:border-gold-royal/40 shadow-sm transition-all group"
             >
               <span className="font-mono text-xs text-gold-metallic font-semibold tracking-widest block mb-4">
                 {pillar.num}
@@ -805,7 +799,7 @@ export const HomePage: React.FC = () => {
         {/* Subtle decorative circles */}
         <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-gold-royal/10 pointer-events-none"></div>
 
-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10 space-y-6 reveal-on-scroll">
+        <div className="max-w-4xl mx-auto px-4 text-center relative z-10 space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-royal/40 border border-gold-royal/30 text-gold-royal text-xs font-mono uppercase tracking-widest">
             <Sparkles className="w-3.5 h-3.5" />
             <span>LET’S BEGIN YOUR JOURNEY</span>
@@ -823,7 +817,6 @@ export const HomePage: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Link
               to="/plan-trip"
-              data-magnetic="true"
               className="btn-primary w-full sm:w-auto px-8 py-3.5"
             >
               <Sparkles className="w-4 h-4 btn-no-move" />
@@ -834,7 +827,6 @@ export const HomePage: React.FC = () => {
               href="https://wa.me/9196380792722?text=Hello%20Yazhi%20Holidays,%20I%20would%20like%20to%20talk%20to%20your%20team%20about%20a%20trip."
               target="_blank"
               rel="noopener noreferrer"
-              data-magnetic="true"
               className="btn-secondary-dark w-full sm:w-auto px-8 py-3.5"
             >
               <MessageCircle className="w-4 h-4 text-gold-royal btn-no-move" />
@@ -852,7 +844,7 @@ export const HomePage: React.FC = () => {
         onMouseLeave={() => setIsReviewPaused(false)}
         aria-label="Customer Reviews & Testimonials"
       >
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal-on-scroll">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div className="max-w-xl">
             <span className="text-xs font-mono uppercase tracking-widest text-gold-metallic block mb-2">
               VERIFIED GUEST REFLECTIONS

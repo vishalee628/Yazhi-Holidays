@@ -197,7 +197,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             {/* Primary Action Button: "Plan My Trip" */}
             <Link
               to="/plan-trip"
-              data-magnetic="true"
               className="btn-primary hidden sm:inline-flex"
             >
               <Sparkles className="w-3.5 h-3.5 btn-no-move" />
