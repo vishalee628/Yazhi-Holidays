@@ -97,7 +97,7 @@ export const HappyCustomersGallery: React.FC = () => {
   return (
     <section 
       id="happy-customers-gallery" 
-      className="py-24 bg-sand-card border-t border-sand-border relative overflow-hidden"
+      className="py-16 sm:py-24 bg-sand-card border-t border-sand-border relative overflow-hidden"
       aria-label="Happy Customers Gallery"
     >
       {/* Decorative ambient backdrop */}
@@ -107,7 +107,7 @@ export const HappyCustomersGallery: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sand-ivory border border-gold-royal/30 text-gold-metallic text-xs font-mono uppercase tracking-widest mb-3 shadow-sm">
             <Camera className="w-3.5 h-3.5 text-gold-royal" />
             <span>AUTHENTIC TRAVEL MOMENTS</span>
@@ -117,21 +117,21 @@ export const HappyCustomersGallery: React.FC = () => {
             Happy Customers – Memories from Our Trips
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-muted mt-4 font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-muted mt-3 sm:mt-4 font-light leading-relaxed">
             “Every journey creates a beautiful memory. Explore the happy moments our travellers experienced with Yazhi Holidays.”
           </p>
         </div>
 
         {/* Dynamic Destination Filter Bar */}
         {memories.length > 0 && (
-          <div className="flex items-center justify-center gap-2 flex-wrap mb-12">
+          <div className="flex items-center justify-center gap-2 flex-wrap mb-8 sm:mb-12">
             {filterTabs.map((dest) => {
               const isActive = selectedDestination === dest;
               return (
                 <button
                   key={dest}
                   onClick={() => setSelectedDestination(dest)}
-                  className={`text-xs px-4 py-2 rounded-full transition-all duration-300 font-medium ${
+                  className={`text-xs px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all duration-300 font-medium ${
                     isActive
                       ? 'bg-navy-midnight text-gold-royal border border-gold-royal shadow-sm scale-105'
                       : 'bg-white text-slate-body border border-sand-border hover:bg-sand-ivory hover:border-gold-royal/40'
@@ -149,7 +149,7 @@ export const HappyCustomersGallery: React.FC = () => {
           /* ========================================================= */
           /* ELEGANT EMPTY STATE (Requirement 6)                      */
           /* ========================================================= */
-          <div className="bg-white rounded-3xl p-10 sm:p-16 border border-sand-border shadow-luxury max-w-3xl mx-auto text-center relative overflow-hidden group">
+          <div className="bg-white rounded-3xl p-6 sm:p-12 md:p-16 border border-sand-border shadow-luxury max-w-3xl mx-auto text-center relative overflow-hidden group">
             {/* Subtle glow border */}
             <div className="absolute inset-0 bg-gradient-to-b from-gold-royal/5 via-transparent to-transparent pointer-events-none" />
             
@@ -216,7 +216,7 @@ export const HappyCustomersGallery: React.FC = () => {
           /* ========================================================= */
           /* MASONRY-STYLE PHOTO GRID (Requirement 1 & 4)              */
           /* ========================================================= */
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-[280px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 auto-rows-[250px] min-[375px]:auto-rows-[280px]">
             {filteredMemories.map((photo, index) => {
               // Asymmetric masonry heights for dynamic rhythm
               const isTall = index % 5 === 0 || index % 7 === 0;
@@ -340,19 +340,19 @@ export const HappyCustomersGallery: React.FC = () => {
             {filteredMemories.length > 1 && (
               <button
                 onClick={handlePrevPhoto}
-                className="absolute left-2 sm:left-4 z-20 w-11 h-11 rounded-full bg-navy-midnight/80 hover:bg-gold-royal hover:text-navy-midnight border border-gold-royal/30 text-white flex items-center justify-center transition-all shadow-lg"
+                className="absolute left-1.5 sm:left-4 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-navy-midnight/80 hover:bg-gold-royal hover:text-navy-midnight border border-gold-royal/30 text-white flex items-center justify-center transition-all shadow-lg"
                 aria-label="Previous Photo"
               >
-                <ChevronLeft className="w-6 h-6" />
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             )}
 
             {/* Photo Image */}
-            <div className="max-h-[75vh] max-w-[90vw] flex items-center justify-center">
+            <div className="max-h-[70vh] sm:max-h-[75vh] max-w-[95vw] sm:max-w-[90vw] flex items-center justify-center">
               <img
                 src={currentPhoto.imageUrl}
                 alt={currentPhoto.caption || currentPhoto.destination}
-                className="max-h-[75vh] max-w-[90vw] object-contain rounded-xl shadow-2xl border border-gold-royal/20 animate-fadeIn"
+                className="max-h-[70vh] sm:max-h-[75vh] max-w-[95vw] sm:max-w-[90vw] object-contain rounded-xl shadow-2xl border border-gold-royal/20 animate-fadeIn"
               />
             </div>
 
@@ -360,10 +360,10 @@ export const HappyCustomersGallery: React.FC = () => {
             {filteredMemories.length > 1 && (
               <button
                 onClick={handleNextPhoto}
-                className="absolute right-2 sm:right-4 z-20 w-11 h-11 rounded-full bg-navy-midnight/80 hover:bg-gold-royal hover:text-navy-midnight border border-gold-royal/30 text-white flex items-center justify-center transition-all shadow-lg"
+                className="absolute right-1.5 sm:right-4 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-navy-midnight/80 hover:bg-gold-royal hover:text-navy-midnight border border-gold-royal/30 text-white flex items-center justify-center transition-all shadow-lg"
                 aria-label="Next Photo"
               >
-                <ChevronRight className="w-6 h-6" />
+                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             )}
           </div>

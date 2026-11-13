@@ -4,32 +4,32 @@ import { Sparkles, ShieldCheck, HeartHandshake, Compass, ArrowRight, CheckCircle
 
 export const AboutPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-sand-ivory pt-28 pb-24">
+    <div className="min-h-screen bg-sand-ivory pt-24 sm:pt-28 pb-16 sm:pb-24">
       
       {/* Brand Hero */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-20">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-midnight text-gold-royal text-xs font-mono tracking-widest uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-midnight text-gold-royal text-[10px] sm:text-xs font-mono tracking-widest uppercase mb-3 sm:mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             <span>OUR STORY & PHILOSOPHY</span>
           </div>
-          <h1 className="font-serif text-4xl sm:text-6xl text-navy-primary font-normal leading-tight">
+          <h1 className="font-serif text-3xl sm:text-6xl text-navy-primary font-normal leading-tight">
             Crafting Journeys That Resonate Beyond the Horizon
           </h1>
-          <p className="text-base sm:text-lg text-slate-muted mt-4 font-light leading-relaxed">
+          <p className="text-sm sm:text-lg text-slate-muted mt-3 sm:mt-4 font-light leading-relaxed">
             Yazhi Holidays was founded on a simple conviction: true travel is neither a frantic race through landmarks nor an off-the-shelf itinerary. It is an art form—thoughtfully paced, deeply human, and distinctively memorable.
           </p>
         </div>
       </section>
 
       {/* Brand Identity & Official Logo Section */}
-      <section className="bg-navy-midnight text-white py-24 border-y border-navy-royal/60 mb-20 relative overflow-hidden">
+      <section className="bg-navy-midnight text-white py-16 sm:py-24 border-y border-navy-royal/60 mb-16 sm:mb-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
             
             {/* Left: Official Logo Showcase */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-3xl p-1 bg-gradient-to-tr from-gold-metallic via-gold-royal to-gold-light shadow-gold-glow flex items-center justify-center">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl p-1 bg-gradient-to-tr from-gold-metallic via-gold-royal to-gold-light shadow-gold-glow flex items-center justify-center">
                 <img
                   src="/yazhi-logo.jpg"
                   alt="Official Yazhi Holidays Logo"

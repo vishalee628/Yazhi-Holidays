@@ -66,29 +66,29 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-sand-ivory pt-28 pb-24">
+    <div className="min-h-screen bg-sand-ivory pt-24 sm:pt-28 pb-16 sm:pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-midnight text-gold-royal text-xs font-mono tracking-widest uppercase mb-3">
+        <div className="max-w-3xl mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-midnight text-gold-royal text-[10px] sm:text-xs font-mono tracking-widest uppercase mb-3">
             <Sparkles className="w-3.5 h-3.5" />
             <span>DIRECT CONCIERGE ASSISTANCE</span>
           </div>
-          <h1 className="font-serif text-4xl sm:text-6xl text-navy-primary font-normal leading-tight">
+          <h1 className="font-serif text-3xl sm:text-6xl text-navy-primary font-normal leading-tight">
             Connect With Our Team
           </h1>
-          <p className="text-base text-slate-muted mt-3 font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-muted mt-3 font-light leading-relaxed">
             Whether you are curious about a destination, seeking advice for an upcoming family holiday, or ready to sculpt a completely customized itinerary, our concierge is at your service.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           
           {/* Contact Details Left (5 cols) */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="lg:col-span-5 space-y-6 sm:space-y-8">
             
-            <div className="bg-white rounded-3xl p-8 border border-sand-border shadow-luxury space-y-6">
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-sand-border shadow-luxury space-y-6">
               <h3 className="font-serif text-2xl text-navy-primary font-semibold">
                 Yazhi Holidays Concierge
               </h3>
@@ -150,7 +150,7 @@ export const ContactPage: React.FC = () => {
 
           {/* Form Right (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-3xl p-8 sm:p-12 border border-sand-border shadow-luxury">
+            <div className="bg-white rounded-3xl p-6 sm:p-10 md:p-12 border border-sand-border shadow-luxury">
               
               <h3 className="font-serif text-3xl text-navy-primary font-semibold mb-2">
                 Send Us a Message

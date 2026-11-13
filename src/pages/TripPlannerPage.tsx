@@ -136,38 +136,38 @@ export const TripPlannerPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-sand-ivory pt-28 pb-24">
+    <div className="min-h-screen bg-sand-ivory pt-24 sm:pt-28 pb-16 sm:pb-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-midnight text-gold-royal text-xs font-mono tracking-widest uppercase mb-3">
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-midnight text-gold-royal text-[10px] sm:text-xs font-mono tracking-widest uppercase mb-3">
             <Sparkles className="w-3.5 h-3.5" />
             <span>BESPOKE PLANNING WIZARD</span>
           </div>
           <h1 className="font-serif text-3xl sm:text-5xl text-navy-primary font-normal">
             Custom Trip Planner
           </h1>
-          <p className="text-sm text-slate-muted mt-2 font-light">
+          <p className="text-xs sm:text-sm text-slate-muted mt-2 font-light">
             Share your travel vision with us in 7 simple steps. Our travel designers will sculpt your tailored route within 24 hours.
           </p>
         </div>
 
         {/* Progress Bar */}
-        <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-luxury border border-sand-border mb-8">
+        <div className="bg-white rounded-2xl p-4 sm:p-8 shadow-luxury border border-sand-border mb-6 sm:mb-8">
           <div className="flex items-center justify-between text-xs font-mono text-slate-muted mb-2">
-            <span className="font-semibold text-navy-primary uppercase">
+            <span className="font-semibold text-navy-primary uppercase truncate pr-2">
               Step 0{step} of 0{totalSteps}: {
                 step === 1 ? 'Destination Choice' :
-                step === 2 ? 'Travel Dates & Duration' :
-                step === 3 ? 'Traveller Composition' :
-                step === 4 ? 'Estimated Budget' :
-                step === 5 ? 'Experience Style' :
+                step === 2 ? 'Dates & Duration' :
+                step === 3 ? 'Travellers' :
+                step === 4 ? 'Budget' :
+                step === 5 ? 'Experience' :
                 step === 6 ? 'Contact Details' :
                 'Review & Confirm'
               }
             </span>
-            <span className="text-gold-metallic font-bold">{Math.round((step / totalSteps) * 100)}%</span>
+            <span className="text-gold-metallic font-bold flex-shrink-0">{Math.round((step / totalSteps) * 100)}%</span>
           </div>
 
           <div className="w-full h-2 bg-sand-card rounded-full overflow-hidden">
@@ -179,7 +179,7 @@ export const TripPlannerPage: React.FC = () => {
         </div>
 
         {/* Step Container Card */}
-        <div className="bg-white rounded-2xl p-6 sm:p-10 shadow-luxury border border-sand-border relative">
+        <div className="bg-white rounded-2xl p-4 sm:p-10 shadow-luxury border border-sand-border relative">
           
           {errorMsg && (
             <div className="mb-6 p-4 text-xs bg-red-50 text-red-700 border border-red-200 rounded-xl">

@@ -18,6 +18,8 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   body {
@@ -25,6 +27,9 @@
     color: #243247;
     font-family: 'Manrope', system-ui, sans-serif;
     overflow-x: hidden;
+    max-width: 100%;
+    position: relative;
+    -webkit-text-size-adjust: 100%;
   }
 
   h1, h2, h3, h4, .font-serif {
@@ -509,6 +514,104 @@
 /* Subtle directional arrow icon motion */
 svg.btn-arrow, .btn-primary svg, .btn-primary-navy svg, .btn-secondary svg, .btn-secondary-dark svg, .btn-hero-primary svg {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ========================================================= */
+/* MOBILE RESPONSIVE ENHANCEMENTS                            */
+/* ========================================================= */
+
+/* Prevent iOS Safari 16px auto-zoom jump on input focus */
+@media (max-width: 640px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Compact button padding on extra-small screens (320px - 360px) */
+@media (max-width: 374px) {
+  .btn-primary,
+  .btn-primary-navy,
+  .btn-secondary,
+  .btn-secondary-dark {
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    padding-left: 1.125rem;
+    padding-right: 1.125rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Eliminate tap delay and unwanted grey flash on touch devices */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth mobile menu fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Premium Mobile Menu Slide & Stagger Animations */
+@keyframes menuSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes menuItemFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-menu-slide {
+  animation: menuSlideIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes menuScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-menu-scale {
+  animation: menuScaleIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-menu-item {
+  animation: menuItemFade 0.38s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 

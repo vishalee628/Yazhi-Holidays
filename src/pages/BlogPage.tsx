@@ -13,7 +13,7 @@ export const BlogPage: React.FC = () => {
     : BLOG_POSTS.filter(p => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-sand-ivory pt-28 pb-24">
+    <div className="min-h-screen bg-sand-ivory pt-24 sm:pt-28 pb-16 sm:pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Editorial Header */}
@@ -22,7 +22,7 @@ export const BlogPage: React.FC = () => {
             <Sparkles className="w-3.5 h-3.5" />
             <span>THE YAZHI JOURNAL</span>
           </div>
-          <h1 className="font-serif text-4xl sm:text-6xl text-navy-primary font-normal leading-tight">
+          <h1 className="font-serif text-3xl min-[360px]:text-4xl sm:text-6xl text-navy-primary font-normal leading-tight">
             Notes From the World
           </h1>
           <p className="text-base text-slate-muted mt-3 font-light leading-relaxed">
@@ -64,7 +64,7 @@ export const BlogPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between">
+              <div className="lg:col-span-5 p-5 sm:p-8 lg:p-12 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-2 text-xs text-slate-muted font-mono mb-2">
                     <Clock className="w-3.5 h-3.5 text-gold-metallic" />
@@ -78,7 +78,7 @@ export const BlogPage: React.FC = () => {
                   </span>
 
                   <Link to={`/travel-journal/${filteredPosts[0].slug}`}>
-                    <h2 className="font-serif text-3xl font-semibold text-navy-primary group-hover:text-gold-metallic transition-colors leading-snug">
+                    <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-navy-primary group-hover:text-gold-metallic transition-colors leading-snug">
                       {filteredPosts[0].title}
                     </h2>
                   </Link>

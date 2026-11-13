@@ -47,7 +47,7 @@ export const DestinationDetailPage: React.FC = () => {
     <div className="min-h-screen bg-sand-ivory">
       
       {/* Hero Banner */}
-      <section className="relative h-[65vh] min-h-[480px] flex items-end pb-16 bg-navy-midnight overflow-hidden">
+      <section className="relative h-[55vh] sm:h-[65vh] min-h-[400px] sm:min-h-[480px] flex items-end pb-10 sm:pb-16 bg-navy-midnight overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={destination.heroImage}
@@ -58,23 +58,23 @@ export const DestinationDetailPage: React.FC = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl space-y-3">
+          <div className="max-w-3xl space-y-2.5 sm:space-y-3">
             <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-gold-royal">
-              <MapPin className="w-4 h-4" />
+              <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>{destination.country}</span>
               <span>•</span>
               <span>{destination.region} Tour</span>
             </div>
 
-            <h1 className="font-serif text-4xl sm:text-6xl text-white font-normal leading-tight">
+            <h1 className="font-serif text-3xl min-[360px]:text-4xl sm:text-6xl text-white font-normal leading-tight">
               {destination.name}
             </h1>
 
-            <p className="text-lg text-sand-ivory/90 font-light max-w-2xl">
+            <p className="text-sm sm:text-lg text-sand-ivory/90 font-light max-w-2xl">
               {destination.tagline}
             </p>
 
-            <div className="pt-2 flex flex-wrap items-center gap-4 text-xs text-sand-ivory">
+            <div className="pt-2 flex flex-wrap items-center gap-2.5 sm:gap-4 text-xs text-sand-ivory">
               <span className="flex items-center gap-1.5 bg-navy-midnight/70 px-3 py-1.5 rounded-full border border-gold-royal/30">
                 <Calendar className="w-3.5 h-3.5 text-gold-royal" />
                 <span>Best: {destination.bestTimeToVisit}</span>
@@ -89,8 +89,8 @@ export const DestinationDetailPage: React.FC = () => {
       </section>
 
       {/* Main Content Layout */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           
           {/* Left Column (8 cols): Overview, Highlights, Day Itinerary, Gallery, Tips */}
           <div className="lg:col-span-8 space-y-16">

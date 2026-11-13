@@ -5,31 +5,31 @@ import { COLLECTIONS } from '../data/travelData';
 
 export const CollectionsPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-sand-ivory pt-28 pb-24">
+    <div className="min-h-screen bg-sand-ivory pt-24 sm:pt-28 pb-16 sm:pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-midnight text-gold-royal text-xs font-mono tracking-widest uppercase mb-3">
+        <div className="max-w-3xl mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-midnight text-gold-royal text-[10px] sm:text-xs font-mono tracking-widest uppercase mb-3">
             <Sparkles className="w-3.5 h-3.5" />
             <span>CURATED TRAVEL COLLECTIONS</span>
           </div>
-          <h1 className="font-serif text-4xl sm:text-6xl text-navy-primary font-normal leading-tight">
+          <h1 className="font-serif text-3xl sm:text-6xl text-navy-primary font-normal leading-tight">
             Journeys Grouped by Feeling
           </h1>
-          <p className="text-base text-slate-muted mt-3 font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-muted mt-3 font-light leading-relaxed">
             Every holiday serves a distinct emotional need. Explore our curated collections designed for couples, multigenerational families, nature seekers, and slow travelers.
           </p>
         </div>
 
         {/* Collections Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {COLLECTIONS.map((col, idx) => (
             <div
               key={col.id}
               className="group bg-white rounded-3xl overflow-hidden shadow-luxury border border-sand-border flex flex-col destination-card"
             >
-              <div className="relative h-80 overflow-hidden">
+              <div className="relative h-64 sm:h-80 overflow-hidden">
                 <img
                   src={col.image}
                   alt={col.title}

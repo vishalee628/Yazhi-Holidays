@@ -64,7 +64,7 @@ export const Footer: React.FC = () => {
         {/* ========================================================= */}
         {/* REDESIGNED LUXURY NEWSLETTER SECTION                      */}
         {/* ========================================================= */}
-        <div className="mb-14 p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-[#041329] via-[#082042] to-[#041329] border border-gold-royal/30 shadow-luxury-dark relative overflow-hidden">
+        <div className="mb-14 p-5 sm:p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-[#041329] via-[#082042] to-[#041329] border border-gold-royal/30 shadow-luxury-dark relative overflow-hidden">
           {/* Ambient decorative blur glows */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-gold-royal/5 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-gold-royal/5 rounded-full blur-3xl pointer-events-none" />
@@ -172,7 +172,7 @@ export const Footer: React.FC = () => {
                 href="https://wa.me/9196380792722?text=Hello%20Yazhi%20Holidays,%20I%20would%20like%20to%20know%20more%20about%20your%20domestic%20holiday%20packages."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary py-2.5 px-5"
+                className="btn-primary py-2.5 px-5 w-full sm:w-auto inline-flex items-center justify-center gap-2"
               >
                 <MessageCircle className="w-4 h-4 text-navy-midnight btn-no-move" />
                 <span>Chat on WhatsApp Directly</span>

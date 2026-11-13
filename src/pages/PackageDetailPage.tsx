@@ -104,7 +104,7 @@ export const PackageDetailPage: React.FC = () => {
     <div className="min-h-screen bg-sand-ivory pb-24">
       
       {/* Hero Header */}
-      <section className="relative h-[60vh] min-h-[440px] flex items-end pb-16 bg-navy-midnight overflow-hidden">
+      <section className="relative h-[50vh] sm:h-[60vh] min-h-[380px] sm:min-h-[440px] flex items-end pb-10 sm:pb-16 bg-navy-midnight overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={pkg.heroImage}
@@ -115,7 +115,7 @@ export const PackageDetailPage: React.FC = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl space-y-3">
+          <div className="max-w-3xl space-y-2.5 sm:space-y-3">
             <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-gold-royal">
               <MapPin className="w-3.5 h-3.5" />
               <span>{pkg.destinationName}</span>
@@ -123,11 +123,11 @@ export const PackageDetailPage: React.FC = () => {
               <span>{pkg.tripType}</span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-white font-normal leading-tight">
+            <h1 className="font-serif text-2xl sm:text-5xl lg:text-6xl text-white font-normal leading-tight">
               {pkg.title}
             </h1>
 
-            <div className="flex flex-wrap items-center gap-4 text-xs text-sand-ivory pt-2">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs text-sand-ivory pt-1.5 sm:pt-2">
               <span className="bg-navy-midnight/70 px-3 py-1.5 rounded-full border border-gold-royal/30 flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-gold-royal" />
                 <span>{pkg.durationLabel}</span>
@@ -146,8 +146,8 @@ export const PackageDetailPage: React.FC = () => {
       </section>
 
       {/* Main Content Layout */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           
           {/* Left Column (8 cols): Overview, Itinerary, Inclusions/Exclusions, Policy */}
           <div className="lg:col-span-8 space-y-14">

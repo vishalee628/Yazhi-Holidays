@@ -160,39 +160,39 @@ export const HomePage: React.FC = () => {
         </div>
 
         {/* Hero Content Area */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 sm:py-24 md:py-28 w-full">
           <div className="max-w-3xl">
             
             {/* Editorial Label */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy-midnight/80 border border-gold-royal/40 backdrop-blur-md mb-6 animate-hero-fade">
+            <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-navy-midnight/80 border border-gold-royal/40 backdrop-blur-md mb-4 sm:mb-6 animate-hero-fade">
               <span className="w-1.5 h-1.5 rounded-full bg-gold-royal animate-pulse"></span>
-              <span className="text-[11px] uppercase tracking-[0.25em] text-gold-light font-medium">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-gold-light font-medium">
                 TRAVEL, THOUGHTFULLY CURATED
               </span>
             </div>
 
             {/* Editorial Headline */}
-            <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl text-white font-normal leading-[1.08] tracking-tight mb-6 animate-hero-title">
+            <h1 className="font-serif text-3.5xl min-[360px]:text-4xl sm:text-6xl lg:text-7xl text-white font-normal leading-[1.1] sm:leading-[1.08] tracking-tight mb-4 sm:mb-6 animate-hero-title">
               Your World. <br />
               <span className="italic font-light text-gold-light">Your Story.</span>
             </h1>
 
             {/* Supporting Copy */}
             <div className="animate-hero-sub">
-              <p className="text-base sm:text-xl text-sand-ivory/90 leading-relaxed font-light mb-4 max-w-2xl">
+              <p className="text-sm sm:text-xl text-sand-ivory/90 leading-relaxed font-light mb-3 sm:mb-4 max-w-2xl">
                 Discover extraordinary places. Experience unforgettable moments. Let your next journey begin with Yazhi Holidays.
               </p>
 
-              <p className="text-xs uppercase tracking-widest text-gold-royal/90 mb-8 font-mono">
+              <p className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-gold-royal/90 mb-6 sm:mb-8 font-mono leading-relaxed">
                 Extraordinary places • Meaningful experiences • Memories that stay
               </p>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 animate-hero-cta">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 animate-hero-cta max-w-md sm:max-w-none">
               <Link
                 to="/destinations"
-                className="btn-hero-primary group"
+                className="btn-hero-primary group w-full sm:w-auto text-center justify-center"
               >
                 <span>Explore Destinations</span>
                 <ArrowRight className="w-4 h-4 btn-arrow" />
@@ -200,7 +200,7 @@ export const HomePage: React.FC = () => {
               
               <Link
                 to="/plan-trip"
-                className="btn-hero-secondary group"
+                className="btn-hero-secondary group w-full sm:w-auto text-center justify-center"
               >
                 <span>Design Your Journey</span>
               </Link>
@@ -231,15 +231,15 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* SECTION 3: SIGNATURE TRIP FINDER */}
-      <section className="relative z-20 -mt-8 sm:-mt-12 max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="bg-white rounded-2xl shadow-luxury border border-sand-border p-6 sm:p-8 backdrop-blur-lg">
+      <section className="relative z-20 -mt-6 sm:-mt-12 max-w-6xl mx-auto px-3.5 sm:px-6">
+        <div className="bg-white rounded-2xl shadow-luxury border border-sand-border p-4 sm:p-6 md:p-8 backdrop-blur-lg">
           
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-sand-border">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 sm:pb-6 mb-4 sm:mb-6 border-b border-sand-border">
             <div>
-              <span className="text-[11px] font-mono uppercase tracking-widest text-gold-metallic block mb-1">
+              <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-gold-metallic block mb-1">
                 DISCOVER YOUR BESPOKE ROUTE
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-navy-primary font-semibold">
+              <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-navy-primary font-semibold">
                 Where would you love to go?
               </h2>
             </div>
@@ -248,7 +248,7 @@ export const HomePage: React.FC = () => {
             </span>
           </div>
 
-          <form onSubmit={handleTripFinderSubmit} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <form onSubmit={handleTripFinderSubmit} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4">
             
             {/* Destination */}
             <div className="space-y-1">
@@ -362,10 +362,10 @@ export const HomePage: React.FC = () => {
       <FlightPathAnimation />
 
       {/* SECTION 4: IMMERSIVE DESTINATION DISCOVERY (Asymmetric 3D Editorial Layout) */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Editorial Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16">
           <div className="max-w-xl">
             <span className="text-xs font-mono uppercase tracking-widest text-gold-metallic block mb-2">
               CURATED ESCAPES
@@ -387,12 +387,12 @@ export const HomePage: React.FC = () => {
         </div>
 
         {/* Asymmetrical Grid: 1 Large Feature + 2 Medium Panels + 3 Balanced Grid Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
           
           {/* 1 Large Featured Destination Panel (Cols 1-7) with 3D Tilt */}
           <div className="lg:col-span-7">
             <TiltCard className="h-full">
-              <div className="group relative h-[480px] sm:h-[560px] rounded-3xl overflow-hidden shadow-luxury destination-card">
+              <div className="group relative h-[440px] sm:h-[560px] rounded-3xl overflow-hidden shadow-luxury destination-card">
                 <img
                   src={DESTINATIONS[0].heroImage}
                   alt={DESTINATIONS[0].name}
@@ -401,7 +401,7 @@ export const HomePage: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-midnight via-navy-midnight/40 to-transparent"></div>
                 
                 {/* Badges */}
-                <div className="absolute top-6 left-6 flex items-center gap-2">
+                <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2">
                   <span className="px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-gold-royal text-navy-midnight font-bold">
                     Featured
                   </span>
@@ -411,26 +411,26 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 {/* Content at Bottom */}
-                <div className="absolute bottom-6 left-6 right-6 text-white space-y-3">
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 text-white space-y-2.5 sm:space-y-3">
                   <div className="flex items-center gap-2 text-xs text-gold-royal font-mono">
                     <MapPin className="w-3.5 h-3.5" />
                     <span>{DESTINATIONS[0].country}</span>
                     <span>•</span>
                     <span>{DESTINATIONS[0].duration}</span>
                   </div>
-                  <h3 className="font-serif text-3xl sm:text-4xl text-white font-medium group-hover:text-gold-light transition-colors">
+                  <h3 className="font-serif text-2xl sm:text-4xl text-white font-medium group-hover:text-gold-light transition-colors">
                     {DESTINATIONS[0].name}
                   </h3>
-                  <p className="text-sm text-sand-ivory/80 line-clamp-2 max-w-lg font-light">
+                  <p className="text-xs sm:text-sm text-sand-ivory/80 line-clamp-2 max-w-lg font-light">
                     {DESTINATIONS[0].description}
                   </p>
-                  <div className="flex items-center justify-between pt-2 border-t border-white/15">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4 pt-2.5 border-t border-white/15">
                     <span className="text-xs text-sand-ivory/80">
                       From <strong className="text-base text-gold-royal font-mono">₹{DESTINATIONS[0].startingPriceINR.toLocaleString('en-IN')}</strong> / person
                     </span>
                     <Link
                       to={`/destinations/${DESTINATIONS[0].slug}`}
-                      className="btn-primary text-xs py-2 px-4 group"
+                      className="btn-primary text-xs py-2 px-4 group w-full sm:w-auto text-center justify-center"
                     >
                       <span>Explore Destination</span>
                       <ArrowRight className="w-3.5 h-3.5 btn-arrow" />
@@ -507,7 +507,7 @@ export const HomePage: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="p-6 flex-1 flex flex-col justify-between">
+                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <span className="text-xs font-mono text-slate-muted block mb-1">
                       {dest.country} • {dest.duration}
@@ -545,9 +545,9 @@ export const HomePage: React.FC = () => {
       <BrandMoment />
 
       {/* SECTION 6: SIGNATURE HOLIDAY COLLECTIONS */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-gold-metallic block mb-2">
             DESIGNED FOR EVERY WAY YOU TRAVEL
           </span>
@@ -559,12 +559,12 @@ export const HomePage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {COLLECTIONS.map((col) => (
             <Link
               key={col.id}
               to={`/packages?type=${col.category}`}
-              className="group relative h-96 rounded-2xl overflow-hidden shadow-luxury destination-card flex flex-col justify-end p-8 text-white"
+              className="group relative h-80 sm:h-96 rounded-2xl overflow-hidden shadow-luxury destination-card flex flex-col justify-end p-6 sm:p-8 text-white"
             >
               <img
                 src={col.image}
@@ -574,10 +574,10 @@ export const HomePage: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-navy-midnight via-navy-midnight/50 to-transparent"></div>
               
               <div className="relative z-10 space-y-2">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-gold-royal font-medium block">
+                <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-gold-royal font-medium block">
                   {col.subtitle}
                 </span>
-                <h3 className="font-serif text-3xl text-white font-medium group-hover:text-gold-light transition-colors">
+                <h3 className="font-serif text-2xl sm:text-3xl text-white font-medium group-hover:text-gold-light transition-colors">
                   {col.title}
                 </h3>
                 <p className="text-xs text-sand-ivory/80 line-clamp-2 font-light">
@@ -595,10 +595,10 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* SECTION 7: FEATURED HOLIDAY PACKAGES */}
-      <section className="py-24 bg-sand-card border-y border-sand-border">
+      <section className="py-16 sm:py-24 bg-sand-card border-y border-sand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12">
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-gold-metallic block mb-2">
                 VERIFIED SAMPLE PACKAGES
@@ -617,7 +617,7 @@ export const HomePage: React.FC = () => {
                 <button
                   key={tab}
                   onClick={() => setSelectedPkgTab(tab)}
-                  className={`text-xs px-4 py-2 rounded-full border transition-all ${
+                  className={`text-xs px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full border transition-all ${
                     selectedPkgTab === tab
                       ? 'bg-navy-midnight text-gold-royal border-gold-royal font-semibold shadow-sm'
                       : 'bg-white text-slate-body border-sand-border hover:bg-sand-ivory'
@@ -630,14 +630,14 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Packages Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {displayedPackages.map((pkg) => (
               <div 
                 key={pkg.id}
                 className="bg-white rounded-2xl overflow-hidden shadow-luxury border border-sand-border flex flex-col sm:flex-row group transition-all hover:border-gold-royal/40"
               >
                 {/* Image */}
-                <div className="sm:w-2/5 relative h-64 sm:h-auto overflow-hidden flex-shrink-0">
+                <div className="sm:w-2/5 relative h-52 sm:h-auto overflow-hidden flex-shrink-0">
                   <img
                     src={pkg.heroImage}
                     alt={pkg.title}
@@ -651,7 +651,7 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 {/* Details */}
-                <div className="sm:w-3/5 p-6 flex flex-col justify-between">
+                <div className="sm:w-3/5 p-4 sm:p-6 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between text-xs text-slate-muted mb-1.5 font-mono">
                       <span>{pkg.destinationName}</span>
@@ -659,7 +659,7 @@ export const HomePage: React.FC = () => {
                     </div>
 
                     <Link to={`/packages/${pkg.slug}`}>
-                      <h3 className="font-serif text-2xl font-semibold text-navy-primary group-hover:text-gold-metallic transition-colors leading-snug">
+                      <h3 className="font-serif text-xl sm:text-2xl font-semibold text-navy-primary group-hover:text-gold-metallic transition-colors leading-snug">
                         {pkg.title}
                       </h3>
                     </Link>
@@ -680,25 +680,25 @@ export const HomePage: React.FC = () => {
                   </div>
 
                   {/* Pricing and Action */}
-                  <div className="pt-4 mt-4 border-t border-sand-border flex items-center justify-between">
+                  <div className="pt-3.5 sm:pt-4 mt-3.5 sm:mt-4 border-t border-sand-border flex items-center justify-between gap-2">
                     <div>
                       <span className="text-[10px] text-slate-muted uppercase font-mono block">From</span>
-                      <span className="text-base font-bold text-navy-primary font-mono">
+                      <span className="text-sm sm:text-base font-bold text-navy-primary font-mono">
                         ₹{pkg.startingPriceINR.toLocaleString('en-IN')}
                       </span>
                       <span className="text-[10px] text-slate-muted block">per person</span>
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
                       <Link
                         to={`/packages/${pkg.slug}`}
-                        className="btn-secondary text-xs py-2 px-3.5"
+                        className="btn-secondary text-xs py-2 px-3 sm:px-3.5"
                       >
                         Details
                       </Link>
                       <button
                         onClick={() => handleOpenEnquiryForPkg(pkg.slug, pkg.title)}
-                        className="btn-primary text-xs py-2 px-4"
+                        className="btn-primary text-xs py-2 px-3.5 sm:px-4"
                       >
                         Enquire
                       </button>
@@ -710,10 +710,10 @@ export const HomePage: React.FC = () => {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12">
             <Link
               to="/packages"
-              className="btn-primary py-3.5 px-8 group"
+              className="btn-primary py-3.5 px-6 sm:px-8 group w-full sm:w-auto inline-flex items-center justify-center text-center"
             >
               <span>Explore All Packages & Custom Extensions</span>
               <ArrowRight className="w-4 h-4 btn-arrow" />
@@ -724,9 +724,9 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* SECTION 8: WHY TRAVEL WITH YAZHI? (Editorial Pillars) */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="max-w-2xl mx-auto text-center mb-16">
+        <div className="max-w-2xl mx-auto text-center mb-10 sm:mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-gold-metallic block mb-2">
             THE YAZHI STANDARD
           </span>
@@ -738,7 +738,7 @@ export const HomePage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {[
             {
               num: '01',
@@ -773,12 +773,12 @@ export const HomePage: React.FC = () => {
           ].map((pillar) => (
             <div 
               key={pillar.num}
-              className="p-8 rounded-2xl bg-white border border-sand-border hover:border-gold-royal/40 shadow-sm transition-all group"
+              className="p-6 sm:p-8 rounded-2xl bg-white border border-sand-border hover:border-gold-royal/40 shadow-sm transition-all group"
             >
-              <span className="font-mono text-xs text-gold-metallic font-semibold tracking-widest block mb-4">
+              <span className="font-mono text-xs text-gold-metallic font-semibold tracking-widest block mb-3 sm:mb-4">
                 {pillar.num}
               </span>
-              <h3 className="font-serif text-2xl font-semibold text-navy-primary group-hover:text-gold-metallic transition-colors mb-3">
+              <h3 className="font-serif text-xl sm:text-2xl font-semibold text-navy-primary group-hover:text-gold-metallic transition-colors mb-2.5 sm:mb-3">
                 {pillar.title}
               </h3>
               <p className="text-xs text-slate-muted leading-relaxed font-light">
@@ -794,30 +794,30 @@ export const HomePage: React.FC = () => {
       <HappyCustomersGallery />
 
       {/* SECTION 10: TRAVEL ENQUIRY CTA BANNER */}
-      <section className="bg-navy-midnight text-white py-24 relative overflow-hidden border-y border-navy-royal/60">
+      <section className="bg-navy-midnight text-white py-16 sm:py-24 relative overflow-hidden border-y border-navy-royal/60">
         
         {/* Subtle decorative circles */}
         <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-gold-royal/10 pointer-events-none"></div>
 
-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10 space-y-6">
+        <div className="max-w-4xl mx-auto px-4 text-center relative z-10 space-y-5 sm:space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-royal/40 border border-gold-royal/30 text-gold-royal text-xs font-mono uppercase tracking-widest">
             <Sparkles className="w-3.5 h-3.5" />
             <span>LET’S BEGIN YOUR JOURNEY</span>
           </div>
 
-          <h2 className="font-serif text-4xl sm:text-6xl text-white font-normal leading-tight">
+          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-white font-normal leading-tight">
             Your Next Great Story <br />
             <span className="italic text-gold-light">Starts Here.</span>
           </h2>
 
-          <p className="text-base text-sand-ivory/80 max-w-xl mx-auto font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-sand-ivory/80 max-w-xl mx-auto font-light leading-relaxed">
             Tell us what you have in mind. We'll help you explore the possibilities, design the ideal circuit, and ensure every detail is tailored for you.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4 pt-4 max-w-md mx-auto sm:max-w-none">
             <Link
               to="/plan-trip"
-              className="btn-primary w-full sm:w-auto px-8 py-3.5"
+              className="btn-primary w-full sm:w-auto px-6 sm:px-8 py-3.5 text-center justify-center"
             >
               <Sparkles className="w-4 h-4 btn-no-move" />
               <span>Plan My Trip</span>
@@ -827,7 +827,7 @@ export const HomePage: React.FC = () => {
               href="https://wa.me/9196380792722?text=Hello%20Yazhi%20Holidays,%20I%20would%20like%20to%20talk%20to%20your%20team%20about%20a%20trip."
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary-dark w-full sm:w-auto px-8 py-3.5"
+              className="btn-secondary-dark w-full sm:w-auto px-5 sm:px-8 py-3.5 text-center justify-center"
             >
               <MessageCircle className="w-4 h-4 text-gold-royal btn-no-move" />
               <span>Talk to Our Team (6380792722)</span>
@@ -839,7 +839,7 @@ export const HomePage: React.FC = () => {
 
       {/* SECTION 11: CUSTOMER REVIEWS & TESTIMONIALS CAROUSEL */}
       <section 
-        className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         onMouseEnter={() => setIsReviewPaused(true)}
         onMouseLeave={() => setIsReviewPaused(false)}
         aria-label="Customer Reviews & Testimonials"
@@ -899,7 +899,7 @@ export const HomePage: React.FC = () => {
                 return (
                   <div
                     key={`${t.id}-${offset}`}
-                    className={`bg-white rounded-2xl p-7 sm:p-8 shadow-luxury border transition-all duration-300 flex flex-col justify-between relative group ${
+                    className={`bg-white rounded-2xl p-5 sm:p-8 shadow-luxury border transition-all duration-300 flex flex-col justify-between relative group ${
                       isPrimary 
                         ? 'border-gold-royal/50 ring-1 ring-gold-royal/20 md:ring-0 md:border-sand-border' 
                         : 'border-sand-border hidden md:flex'

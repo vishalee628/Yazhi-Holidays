@@ -65,25 +65,25 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-navy-midnight/80 backdrop-blur-md flex items-start justify-center pt-16 sm:pt-24 px-4 pb-8 animate-fadeIn">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-navy-midnight/80 backdrop-blur-md flex items-start justify-center pt-12 sm:pt-20 px-3 sm:px-4 pb-6 animate-fadeIn">
       <div 
         className="bg-sand-ivory w-full max-w-2xl rounded-2xl shadow-luxury-dark border border-sand-border overflow-hidden relative"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Input Bar */}
-        <div className="flex items-center px-6 py-4 border-b border-sand-border bg-white">
-          <Search className="w-5 h-5 text-gold-metallic mr-3" />
+        <div className="flex items-center px-3.5 sm:px-6 py-3 sm:py-4 border-b border-sand-border bg-white">
+          <Search className="w-5 h-5 text-gold-metallic mr-2.5 sm:mr-3 flex-shrink-0" />
           <input
             ref={inputRef}
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search destinations, packages (e.g. Ooty, Kerala, Coorg, Honeymoon)..."
-            className="w-full text-base bg-transparent text-navy-primary placeholder-slate-muted focus:outline-none font-sans"
+            placeholder="Search destinations, packages (e.g. Ooty, Kerala, Coorg)..."
+            className="w-full text-sm sm:text-base bg-transparent text-navy-primary placeholder-slate-muted focus:outline-none font-sans"
           />
           <button
             onClick={onClose}
-            className="p-1 text-slate-muted hover:text-navy-primary rounded-full hover:bg-sand-card transition-colors"
+            className="p-1 text-slate-muted hover:text-navy-primary rounded-full hover:bg-sand-card transition-colors flex-shrink-0 ml-1"
             aria-label="Close search"
           >
             <X className="w-5 h-5" />
@@ -91,7 +91,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
         </div>
 
         {/* Search Results Area */}
-        <div className="max-h-[60vh] overflow-y-auto p-6 space-y-6">
+        <div className="max-h-[60vh] overflow-y-auto p-3.5 sm:p-6 space-y-5 sm:space-y-6">
           
           {/* Quick Filters */}
           <div className="flex items-center gap-2 flex-wrap">
@@ -196,14 +196,14 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
         </div>
 
         {/* Footer Hint */}
-        <div className="px-6 py-3 bg-sand-card border-t border-sand-border flex items-center justify-between text-xs text-slate-muted">
-          <span>Press <kbd className="px-1.5 py-0.5 rounded bg-white border border-sand-border text-navy-primary">ESC</kbd> to close</span>
+        <div className="px-3.5 sm:px-6 py-3 bg-sand-card border-t border-sand-border flex items-center justify-between text-xs text-slate-muted">
+          <span className="hidden min-[400px]:inline">Press <kbd className="px-1.5 py-0.5 rounded bg-white border border-sand-border text-navy-primary">ESC</kbd> to close</span>
           <button
             onClick={() => {
               onClose();
               navigate('/destinations');
             }}
-            className="text-navy-primary hover:text-gold-metallic font-semibold flex items-center gap-1"
+            className="text-navy-primary hover:text-gold-metallic font-semibold flex items-center gap-1 ml-auto min-[400px]:ml-0"
           >
             <span>Browse All Curations</span>
             <ArrowRight className="w-3 h-3" />

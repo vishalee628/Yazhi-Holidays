@@ -53,23 +53,23 @@ export const DestinationsPage: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen bg-sand-ivory pt-32 sm:pt-36 pb-24">
+    <div className="min-h-screen bg-sand-ivory pt-24 sm:pt-36 pb-16 sm:pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ========================================================= */}
         {/* PAGE EDITORIAL HEADER (Never obstructed by navbar)        */}
         {/* ========================================================= */}
-        <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy-midnight text-gold-royal text-xs font-mono tracking-widest uppercase mb-4 shadow-sm border border-gold-royal/30">
+        <div className="max-w-3xl mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-navy-midnight text-gold-royal text-[10px] sm:text-xs font-mono tracking-widest uppercase mb-3 sm:mb-4 shadow-sm border border-gold-royal/30">
             <Sparkles className="w-3.5 h-3.5" />
             <span>THE YAZHI COMPASS</span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-6xl text-navy-primary font-normal leading-tight">
+          <h1 className="font-serif text-3xl sm:text-6xl text-navy-primary font-normal leading-tight">
             Discover Your Next Destination
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-muted mt-4 font-light leading-relaxed">
+          <p className="text-sm sm:text-lg text-slate-muted mt-3 sm:mt-4 font-light leading-relaxed">
             From the tranquil backwaters of Kerala and the misty slopes of Ooty to the majestic snow-capped peaks of Kashmir and the royal palaces of Rajasthan, explore our hand-curated collection of Indian domestic journeys. Each destination is paced with mindful care, premium coaches, and verified boutique stays.
           </p>
         </div>
@@ -77,60 +77,60 @@ export const DestinationsPage: React.FC = () => {
         {/* ========================================================= */}
         {/* DOMESTIC SEGMENTATION TABS & QUICK CONTROLS               */}
         {/* ========================================================= */}
-        <div className="flex flex-wrap items-center gap-3 mb-8">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
           <button
             onClick={() => setSelectedType('All')}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
               selectedType === 'All'
                 ? 'bg-navy-midnight text-gold-royal shadow-sm'
                 : 'bg-white text-slate-body border border-sand-border hover:bg-sand-card'
             }`}
           >
-            <Compass className="w-4 h-4 text-gold-metallic" />
-            <span>All Destinations ({DESTINATIONS.length})</span>
+            <Compass className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold-metallic" />
+            <span>All ({DESTINATIONS.length})</span>
           </button>
 
           <button
             onClick={() => setSelectedType('Leisure')}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
               selectedType === 'Leisure'
                 ? 'bg-navy-midnight text-gold-royal shadow-sm'
                 : 'bg-white text-slate-body border border-sand-border hover:bg-sand-card'
             }`}
           >
-            <Mountain className="w-4 h-4 text-gold-metallic" />
-            <span>Hill Stations & Leisure ({DESTINATIONS.filter(d => d.categories.includes('Leisure')).length})</span>
+            <Mountain className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold-metallic" />
+            <span>Hill Stations ({DESTINATIONS.filter(d => d.categories.includes('Leisure')).length})</span>
           </button>
 
           <button
             onClick={() => setSelectedType('Cultural')}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
               selectedType === 'Cultural'
                 ? 'bg-navy-midnight text-gold-royal shadow-sm'
                 : 'bg-white text-slate-body border border-sand-border hover:bg-sand-card'
             }`}
           >
-            <Sparkles className="w-4 h-4 text-gold-metallic" />
-            <span>Heritage & Cultural ({DESTINATIONS.filter(d => d.categories.includes('Cultural')).length})</span>
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold-metallic" />
+            <span>Heritage ({DESTINATIONS.filter(d => d.categories.includes('Cultural')).length})</span>
           </button>
 
           <button
             onClick={() => setSelectedType('Honeymoon')}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
               selectedType === 'Honeymoon'
                 ? 'bg-navy-midnight text-gold-royal shadow-sm'
                 : 'bg-white text-slate-body border border-sand-border hover:bg-sand-card'
             }`}
           >
-            <Compass className="w-4 h-4 text-gold-metallic" />
-            <span>Romantic & Honeymoon ({DESTINATIONS.filter(d => d.categories.includes('Honeymoon')).length})</span>
+            <Compass className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold-metallic" />
+            <span>Romantic ({DESTINATIONS.filter(d => d.categories.includes('Honeymoon')).length})</span>
           </button>
         </div>
 
         {/* ========================================================= */}
         {/* SEARCH & FILTER CONTROLS BAR                              */}
         {/* ========================================================= */}
-        <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-sand-border mb-12 space-y-4">
+        <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-sand-border mb-8 sm:mb-12 space-y-4">
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             
@@ -219,13 +219,13 @@ export const DestinationsPage: React.FC = () => {
           <div className="space-y-12">
             
             {/* Row 1: 1 Large Featured Destination + 2 Medium Panels */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
               
               {/* Large Featured Panel (Cols 1-7) */}
               <div className="lg:col-span-7">
                 <Link
                   to={`/destinations/${filteredDestinations[0].slug}`}
-                  className="group relative block h-[480px] sm:h-[540px] rounded-3xl overflow-hidden shadow-luxury destination-card"
+                  className="group relative block h-[440px] sm:h-[540px] rounded-3xl overflow-hidden shadow-luxury destination-card"
                 >
                   <img
                     src={filteredDestinations[0].heroImage}
@@ -235,7 +235,7 @@ export const DestinationsPage: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-midnight via-navy-midnight/40 to-transparent"></div>
 
                   {/* Badges */}
-                  <div className="absolute top-6 left-6 flex items-center gap-2">
+                  <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2">
                     <span className="px-3.5 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-gold-royal text-navy-midnight font-bold shadow-sm">
                       Curated Spotlight
                     </span>
@@ -245,7 +245,7 @@ export const DestinationsPage: React.FC = () => {
                   </div>
 
                   {/* Content at Bottom */}
-                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-3">
+                  <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 text-white space-y-2.5 sm:space-y-3">
                     <div className="flex items-center gap-2 text-xs text-gold-royal font-mono">
                       <MapPin className="w-3.5 h-3.5" />
                       <span>{filteredDestinations[0].country}</span>
@@ -253,18 +253,18 @@ export const DestinationsPage: React.FC = () => {
                       <span>{filteredDestinations[0].duration}</span>
                     </div>
 
-                    <h2 className="font-serif text-3xl sm:text-5xl text-white font-medium group-hover:text-gold-light transition-colors">
+                    <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl text-white font-medium group-hover:text-gold-light transition-colors">
                       {filteredDestinations[0].name}
                     </h2>
 
-                    <p className="text-sm text-sand-ivory/85 line-clamp-2 max-w-xl font-light">
+                    <p className="text-xs sm:text-sm text-sand-ivory/85 line-clamp-2 max-w-xl font-light">
                       {filteredDestinations[0].description}
                     </p>
 
-                    <div className="flex items-center justify-between pt-3 border-t border-white/20">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4 pt-2.5 border-t border-white/20">
                       <div>
                         <span className="text-[10px] text-sand-ivory/70 block uppercase font-mono">Starting From</span>
-                        <span className="text-lg font-bold text-gold-royal font-mono">
+                        <span className="text-base sm:text-lg font-bold text-gold-royal font-mono">
                           ₹{filteredDestinations[0].startingPriceINR.toLocaleString('en-IN')}
                         </span>
                         <span className="text-xs text-sand-ivory/80 ml-1">/ person</span>
@@ -280,7 +280,7 @@ export const DestinationsPage: React.FC = () => {
               </div>
 
               {/* 2 Medium Panels (Cols 8-12) */}
-              <div className="lg:col-span-5 flex flex-col gap-8">
+              <div className="lg:col-span-5 flex flex-col gap-6 sm:gap-8">
                 {filteredDestinations.slice(1, 3).map((dest) => (
                   <Link
                     key={dest.id}

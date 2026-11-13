@@ -15,26 +15,26 @@ export const ConfirmationPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-sand-ivory pt-28 pb-24">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+    <div className="min-h-screen bg-sand-ivory pt-24 sm:pt-28 pb-16 sm:pb-24">
+      <div className="max-w-3xl mx-auto px-3.5 sm:px-6">
         
         {/* Receipt Container */}
-        <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-luxury border border-sand-border relative overflow-hidden">
+        <div className="bg-white rounded-3xl p-5 sm:p-8 md:p-12 shadow-luxury border border-sand-border relative overflow-hidden">
           
           {/* Top Gold Accent */}
           <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-gold-light via-gold-royal to-gold-metallic"></div>
 
           {/* Success Header */}
-          <div className="text-center space-y-4 pb-8 border-b border-sand-border">
-            <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto border border-emerald-200">
-              <CheckCircle2 className="w-8 h-8" />
+          <div className="text-center space-y-3 sm:space-y-4 pb-6 sm:pb-8 border-b border-sand-border">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto border border-emerald-200">
+              <CheckCircle2 className="w-7 h-7 sm:w-8 sm:h-8" />
             </div>
 
-            <span className="text-[11px] font-mono uppercase tracking-widest text-gold-metallic block">
+            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-gold-metallic block">
               ENQUIRY SUBMISSION CONFIRMED
             </span>
 
-            <h1 className="font-serif text-3xl sm:text-4xl text-navy-primary font-semibold">
+            <h1 className="font-serif text-2xl sm:text-4xl text-navy-primary font-semibold">
               Your Travel Blueprint is in Motion
             </h1>
 

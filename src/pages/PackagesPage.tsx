@@ -55,25 +55,25 @@ export const PackagesPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-sand-ivory pt-28 pb-24">
+    <div className="min-h-screen bg-sand-ivory pt-24 sm:pt-28 pb-16 sm:pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Editorial Page Header */}
-        <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-midnight text-gold-royal text-xs font-mono tracking-widest uppercase mb-3">
+        <div className="max-w-3xl mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-midnight text-gold-royal text-[10px] sm:text-xs font-mono tracking-widest uppercase mb-3">
             <Sparkles className="w-3.5 h-3.5" />
             <span>HANDCRAFTED ITINERARIES</span>
           </div>
-          <h1 className="font-serif text-4xl sm:text-6xl text-navy-primary font-normal leading-tight">
+          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-navy-primary font-normal leading-tight">
             Curated Holiday Packages
           </h1>
-          <p className="text-base text-slate-muted mt-3 font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-muted mt-3 font-light leading-relaxed">
             Each holiday is an artfully planned voyage. Transparent pricing in INR, hand-selected stays, verified private transport, and personal concierge guidance.
           </p>
         </div>
 
         {/* Filter Controls */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-sand-border mb-10 space-y-4">
+        <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-sand-border mb-8 sm:mb-10 space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             
             {/* Search Input */}
@@ -162,13 +162,13 @@ export const PackagesPage: React.FC = () => {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {filteredPackages.map((pkg) => (
               <div
                 key={pkg.id}
                 className="bg-white rounded-2xl overflow-hidden shadow-luxury border border-sand-border flex flex-col sm:flex-row group transition-all hover:border-gold-royal/50"
               >
-                <div className="sm:w-2/5 relative h-64 sm:h-auto overflow-hidden flex-shrink-0">
+                <div className="sm:w-2/5 relative h-52 sm:h-auto overflow-hidden flex-shrink-0">
                   <img
                     src={pkg.heroImage}
                     alt={pkg.title}
@@ -181,7 +181,7 @@ export const PackagesPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="sm:w-3/5 p-6 flex flex-col justify-between">
+                <div className="sm:w-3/5 p-4 sm:p-6 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between text-xs text-slate-muted mb-1 font-mono">
                       <span>{pkg.destinationName}</span>
@@ -189,7 +189,7 @@ export const PackagesPage: React.FC = () => {
                     </div>
 
                     <Link to={`/packages/${pkg.slug}`}>
-                      <h2 className="font-serif text-2xl font-semibold text-navy-primary group-hover:text-gold-metallic transition-colors leading-snug">
+                      <h2 className="font-serif text-xl sm:text-2xl font-semibold text-navy-primary group-hover:text-gold-metallic transition-colors leading-snug">
                         {pkg.title}
                       </h2>
                     </Link>
@@ -208,25 +208,25 @@ export const PackagesPage: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="pt-4 mt-4 border-t border-sand-border flex items-center justify-between">
+                  <div className="pt-3.5 sm:pt-4 mt-3.5 sm:mt-4 border-t border-sand-border flex items-center justify-between gap-2">
                     <div>
                       <span className="text-[10px] text-slate-muted uppercase font-mono block">From</span>
-                      <span className="text-base font-bold text-navy-primary font-mono">
+                      <span className="text-sm sm:text-base font-bold text-navy-primary font-mono">
                         ₹{pkg.startingPriceINR.toLocaleString('en-IN')}
                       </span>
                       <span className="text-[10px] text-slate-muted block">per person</span>
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
                       <Link
                         to={`/packages/${pkg.slug}`}
-                        className="btn-secondary text-xs py-2 px-3.5"
+                        className="btn-secondary text-xs py-2 px-3 sm:px-3.5"
                       >
                         Details
                       </Link>
                       <button
                         onClick={() => handleOpenEnquiry(pkg.slug, pkg.title)}
-                        className="btn-primary text-xs py-2 px-4"
+                        className="btn-primary text-xs py-2 px-3.5 sm:px-4"
                       >
                         Enquire
                       </button>

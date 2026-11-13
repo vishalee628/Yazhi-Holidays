@@ -35,7 +35,7 @@ export const BrandMoment: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-28 bg-navy-midnight overflow-hidden border-y border-gold-royal/20"
+      className="relative py-16 sm:py-28 bg-navy-midnight overflow-hidden border-y border-gold-royal/20"
       aria-label="The Yazhi Journey Brand Moment"
     >
       {/* Background radial gradient & ambient stars */}
@@ -44,12 +44,12 @@ export const BrandMoment: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-8 items-center">
           
           {/* Left Column: Interactive Gold Orbital Flight Path around Yazhi Logo */}
-          <div className="lg:col-span-6 flex items-center justify-center">
+          <div className="lg:col-span-6 flex items-center justify-center overflow-visible py-4">
             
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 flex items-center justify-center">
+            <div className="relative w-64 h-64 min-[390px]:w-72 min-[390px]:h-72 sm:w-80 sm:h-80 flex items-center justify-center scale-[0.82] min-[360px]:scale-90 min-[375px]:scale-95 sm:scale-100 origin-center transition-transform">
               
               {/* Outer Decorative Gold Boundary Orbit */}
               <svg
@@ -158,10 +158,10 @@ export const BrandMoment: React.FC = () => {
               Inspired by the mythical Yazhi—a timeless South Indian emblem of grace, courage, and protection—every holiday we craft is infused with heartfelt hospitality, thoughtful pacing, and uncompromising travel standards.
             </p>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3.5 sm:gap-4">
               <Link
                 to="/plan-trip"
-                className="btn-primary w-full sm:w-auto px-8 py-3.5"
+                className="btn-primary w-full sm:w-auto px-6 sm:px-8 py-3.5 text-center"
               >
                 <span>Plan Your Trip</span>
                 <ArrowRight className="w-4 h-4 btn-arrow" />
@@ -169,7 +169,7 @@ export const BrandMoment: React.FC = () => {
 
               <Link
                 to="/about"
-                className="btn-secondary-dark w-full sm:w-auto px-7 py-3.5"
+                className="btn-secondary-dark w-full sm:w-auto px-6 sm:px-7 py-3.5 text-center"
               >
                 <span>Read Our Heritage</span>
                 <ArrowRight className="w-3.5 h-3.5 btn-arrow text-gold-royal" />
